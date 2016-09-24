@@ -32,6 +32,7 @@
             this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lblHeader.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lblHeader.LineDock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblHeader.LinePadding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblHeader.LineWidth = 2;
             this.lblHeader.Location = new System.Drawing.Point(0, 0);
             this.lblHeader.Name = "lblHeader";
@@ -47,6 +48,7 @@
             this.lblFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblFooter.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lblFooter.LineDock = System.Windows.Forms.DockStyle.Top;
+            this.lblFooter.LinePadding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblFooter.LineWidth = 2;
             this.lblFooter.Location = new System.Drawing.Point(0, 443);
             this.lblFooter.Name = "lblFooter";

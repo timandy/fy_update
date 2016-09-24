@@ -9,7 +9,6 @@ namespace WfyUpdate.Controls
     /// <summary>
     /// 直线控件
     /// </summary>
-    [ToolboxItem(true)]
     public class LineControl : Control
     {
         #region 控件属性

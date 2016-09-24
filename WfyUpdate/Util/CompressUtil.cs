@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using SharpCompress.Archive;
 using SharpCompress.Common;
@@ -11,22 +12,39 @@ namespace WfyUpdate.Util
     public static class CompressUtil
     {
         /// <summary>
-        /// 解压,支持 7z,zip,rar
+        /// 静态构造
         /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="targetFolder"></param>
-        public static void Decompress(byte[] buffer, string targetFolder)
+        static CompressUtil()
         {
             ArchiveEncoding.Default = Encoding.GetEncoding("GB2312");
+        }
+
+        /// <summary>
+        /// 解压,支持 7z,zip,rar
+        /// </summary>
+        /// <param name="buffer">压缩包数据</param>
+        /// <param name="destFolder">目标文件夹</param>
+        /// <param name="lastEntry">指定最后一个解压的文件</param>
+        public static void Decompress(byte[] buffer, string destFolder, string lastEntry)
+        {
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (IArchive archive = ArchiveFactory.Open(stream))
                 {
-                    foreach (var entry in archive.Entries)
+                    IArchiveEntry last = null;
+                    foreach (IArchiveEntry entry in archive.Entries)
                     {
-                        if (!entry.IsDirectory)
-                            entry.WriteToDirectory(targetFolder, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                        if (entry.IsDirectory)
+                            continue;
+                        if (last == null && entry.Key.Equals(lastEntry, StringComparison.OrdinalIgnoreCase))
+                        {
+                            last = entry;
+                            continue;
+                        }
+                        entry.WriteToDirectory(destFolder, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
                     }
+                    if (last != null)
+                        last.WriteToDirectory(destFolder, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
                 }
             }
         }

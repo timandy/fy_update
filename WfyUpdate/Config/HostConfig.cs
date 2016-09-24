@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using WfyUpdate.Util;
 
@@ -30,7 +31,7 @@ namespace WfyUpdate.Config
 
         private static string m_ExecutableDirectory;
         /// <summary>
-        /// 获取目标进程文件夹 格式:D:\xx系统\
+        /// 获取目标文件的父文件夹 格式:D:\xx系统\
         /// </summary>
         public static string ExecutableDirectory
         {
@@ -38,6 +39,15 @@ namespace WfyUpdate.Config
             {
                 return m_ExecutableDirectory ?? (m_ExecutableDirectory = FilePathUtil.GetDirectoryName(ExecutablePath));
             }
+        }
+
+        private static string m_ExecutableName;
+        /// <summary>
+        /// 获取目标文件的短文件名 格式:wfy.exe
+        /// </summary>
+        public static string ExecutableName
+        {
+            get { return m_ExecutableName ?? (m_ExecutableName = Path.GetFileName(ExecutablePath)); }
         }
 
         private static Version m_CurrentVersion;

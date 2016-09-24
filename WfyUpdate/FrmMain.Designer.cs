@@ -21,8 +21,8 @@
             this.lblFooter = new WfyUpdate.Controls.LineControl();
             this.lblLog = new WfyUpdate.Controls.LineControl();
             this.progress = new WfyUpdate.Controls.ProgressControl();
-            this.btnRetry = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnRetry = new WfyUpdate.Controls.ButtonControl();
+            this.btnCancel = new WfyUpdate.Controls.ButtonControl();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -83,14 +83,18 @@
             this.btnRetry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRetry.BackColor = System.Drawing.Color.Transparent;
             this.btnRetry.FlatAppearance.BorderSize = 0;
-            this.btnRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRetry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRetry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnRetry.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.btnRetry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRetry.Image = global::WfyUpdate.Properties.Resources.retry;
+            this.btnRetry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRetry.Location = new System.Drawing.Point(804, 455);
             this.btnRetry.Name = "btnRetry";
             this.btnRetry.Size = new System.Drawing.Size(70, 30);
             this.btnRetry.TabIndex = 4;
             this.btnRetry.Text = "重试";
+            this.btnRetry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRetry.UseVisualStyleBackColor = false;
             this.btnRetry.Visible = false;
             // 
@@ -99,21 +103,25 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCancel.Image = global::WfyUpdate.Properties.Resources.cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(880, 455);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(70, 30);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "取消";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::WfyUpdate.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(1000, 520);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
@@ -140,7 +148,7 @@
         private Controls.LineControl lblFooter;
         private Controls.LineControl lblLog;
         private Controls.ProgressControl progress;
-        private System.Windows.Forms.Button btnRetry;
-        private System.Windows.Forms.Button btnCancel;
+        private Controls.ButtonControl btnRetry;
+        private Controls.ButtonControl btnCancel;
     }
 }

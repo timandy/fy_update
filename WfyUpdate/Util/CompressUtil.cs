@@ -11,21 +11,27 @@ namespace WfyUpdate.Util
     public static class CompressUtil
     {
         /// <summary>
+        /// 静态构造
+        /// </summary>
+        static CompressUtil()
+        {
+            ArchiveEncoding.Default = Encoding.GetEncoding("GB2312");
+        }
+
+        /// <summary>
         /// 解压,支持 7z,zip,rar
         /// </summary>
         /// <param name="buffer"></param>
         /// <param name="targetFolder"></param>
         public static void Decompress(byte[] buffer, string targetFolder)
         {
-            ArchiveEncoding.Default = Encoding.GetEncoding("GB2312");
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (IArchive archive = ArchiveFactory.Open(stream))
                 {
                     foreach (var entry in archive.Entries)
                     {
-                        if (!entry.IsDirectory)
-                            entry.WriteToDirectory(targetFolder, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                        entry.WriteToDirectory(targetFolder, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
                     }
                 }
             }

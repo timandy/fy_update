@@ -166,7 +166,7 @@ namespace WfyUpdate.Update
             try
             {
                 this.OnNotify(new NotifyEventArgs("正在解压 {0}。", package.FileName));
-                CompressUtil.Decompress(e.Result, HostConfig.ExecutableDirectory);
+                CompressUtil.Decompress(e.Result, HostConfig.ExecutableDirectory, HostConfig.ExecutableName);
             }
             catch (Exception exp)
             {

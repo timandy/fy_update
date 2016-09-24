@@ -2,7 +2,6 @@
 using System;
 using System.Diagnostics;
 #endif
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using WfyUpdate.Config;
@@ -48,14 +47,8 @@ namespace WfyUpdate
         //提取程序集
         static void ExtractAssembly()
         {
-            Dictionary<string, byte[]> map = new Dictionary<string, byte[]>();
-            string workFolder = AppConfig.ExecutableDirectory;
-            map.Add(workFolder + "SharpCompress.dll", Resources.SharpCompress);
-            foreach (var entry in map)
-            {
-                try { File.WriteAllBytes(entry.Key, entry.Value); }
-                catch { }
-            }
+            try { File.WriteAllBytes(AppConfig.ExecutableDirectory + "SharpCompress.dll", Resources.SharpCompress); }
+            catch { }
         }
     }
 }

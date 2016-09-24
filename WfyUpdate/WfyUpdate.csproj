@@ -67,19 +67,6 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Config\AppConfig.cs" />
     <Compile Include="Config\HostConfig.cs" />
     <Compile Include="Controls\BaseForm.cs">
@@ -91,14 +78,30 @@
     <Compile Include="Controls\ProgressControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dispose\Disposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\LayoutOptions.cs" />
     <Compile Include="Layout\SmoothingModeGraphics.cs" />
     <Compile Include="Model\UpdatePackage.cs" />
     <Compile Include="Model\UpdatePackageCollection.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Update\Event\ErrorEvent.cs" />
     <Compile Include="Update\Event\NotifyEvent.cs" />
-    <Compile Include="Update\Event\UpdatingEvent.cs" />
     <Compile Include="Update\Event\UpdatedEvent.cs" />
+    <Compile Include="Update\Event\UpdatingEvent.cs" />
     <Compile Include="Update\IUpdater.cs" />
     <Compile Include="Update\Updater.cs">
       <SubType>Component</SubType>
@@ -122,9 +125,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="_DLL\SharpCompress.dll" />
     <None Include="app.ico" />
     <None Include="Resources\background.png" />
+    <None Include="_DLL\SharpCompress.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

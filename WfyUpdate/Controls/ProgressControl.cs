@@ -7,7 +7,6 @@ namespace WfyUpdate.Controls
     /// <summary>
     /// 进度条控件
     /// </summary>
-    [ToolboxItem(true)]
     public class ProgressControl : Control
     {
         #region 控件属性

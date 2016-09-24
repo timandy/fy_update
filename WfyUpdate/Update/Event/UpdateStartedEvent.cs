@@ -8,12 +8,12 @@ namespace WfyUpdate.Update.Event
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void UpdatingEventHandler(object sender, UpdatingEventArgs e);
+    public delegate void UpdateStartedEventHandler(object sender, UpdateStartedEventArgs e);
 
     /// <summary>
     /// 检查完毕,开始更新事件数据
     /// </summary>
-    public class UpdatingEventArgs : EventArgs
+    public class UpdateStartedEventArgs : EventArgs
     {
         /// <summary>
         /// 要下载的更新包集合
@@ -24,7 +24,7 @@ namespace WfyUpdate.Update.Event
         /// 构造函数
         /// </summary>
         /// <param name="packages"></param>
-        public UpdatingEventArgs(UpdatePackageCollection packages)
+        public UpdateStartedEventArgs(UpdatePackageCollection packages)
         {
             this.Packages = packages;
         }

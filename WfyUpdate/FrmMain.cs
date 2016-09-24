@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using WfyUpdate.Config;
 using WfyUpdate.Controls;
 using WfyUpdate.Update;
 using WfyUpdate.Util;
@@ -21,10 +22,18 @@ namespace WfyUpdate
         private void Init()
         {
             //updater
-            this.m_Updater.DownloadProgressChanged += (sender, e) => this.progress.Percentage = e.ProgressPercentage;
             this.m_Updater.Notify += (sender, e) => this.lblLog.Text = e.Info;
-            this.m_Updater.Error += (sender, e) => { this.lblLog.Text = e.Error.Message; this.btnRetry.Visible = true; };
-            this.m_Updater.Updated += (sender, e) => this.CloseCore();
+            this.m_Updater.Progress += (sender, e) => this.progress.Percentage = e.Percentage;
+            this.m_Updater.UpdateCompleted += (sender, e) =>
+            {
+                AppRunner.Start(HostConfig.ExecutablePath);
+                this.CloseCore();
+            };
+            this.m_Updater.Error += (sender, e) =>
+            {
+                this.lblLog.Text = e.Error.Message;
+                this.btnRetry.Visible = true;
+            };
             //ui
             this.lblHeader.MouseDown += (sender, e) => Win32.BeginDrag(this.Handle);
             this.lblFooter.MouseDown += (sender, e) => Win32.BeginDrag(this.Handle);
@@ -38,7 +47,6 @@ namespace WfyUpdate
                 if (MessageBoxUtil.Confirm("您确定要退出更新？") == DialogResult.OK)
                     this.CloseCore();
             };
-
             //程序空闲时开始更新
             Application.Idle += (sender, e) =>
             {

@@ -22,6 +22,8 @@ namespace WfyUpdate.Update
         public Updater()
         {
             this.m_WebClient = new WebClientEx { Encoding = System.Text.Encoding.UTF8 };
+            this.m_WebClient.KillProgressChanged += (sender, e) => this.OnProgress(new ProgressEventArgs(e.ProgressPercentage));
+            this.m_WebClient.KillProcessCompleted += (sender, e) => this.KillCompleted(e);
             this.m_WebClient.DownloadProgressChanged += (sender, e) => this.OnProgress(new ProgressEventArgs(e.ProgressPercentage));
             this.m_WebClient.DownloadStringCompleted += (sender, e) => this.CheckCompleted(e);
             this.m_WebClient.DownloadDataCompleted += (sender, e) => this.DownloadCompleted(e);

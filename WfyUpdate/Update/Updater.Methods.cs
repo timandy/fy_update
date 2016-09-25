@@ -51,7 +51,6 @@ namespace WfyUpdate.Update
         protected virtual void CheckAsync()
         {
             this.DisposeAvaliables();
-            HostConfig.KillHosts();
             HostConfig.Refresh();
             if (!System.IO.File.Exists(HostConfig.ExecutablePath))
             {
@@ -73,7 +72,7 @@ namespace WfyUpdate.Update
         }
 
         /// <summary>
-        /// 异步检查结束
+        /// 异步检查完成
         /// </summary>
         /// <param name="e">结果</param>
         protected virtual void CheckCompleted(DownloadStringCompletedEventArgs e)
@@ -110,8 +109,40 @@ namespace WfyUpdate.Update
             //有新版本
             UpdatePackageCollection avaliables = UpdatePackageParser.GetAvaliablePackages(packages);
             this.m_Avaliables = avaliables.GetEnumerator();
-            //开始下载
+            //开始更新
             this.OnUpdateStarted(new UpdateStartedEventArgs(avaliables));
+            this.KillAsync();
+        }
+
+        /// <summary>
+        /// 异步结束进程开始
+        /// </summary>
+        protected virtual void KillAsync()
+        {
+            //结束进程
+            this.OnNotify(new NotifyEventArgs("正在结束占用进程。"));
+            this.m_WebClient.KillProcessAsync(HostConfig.ExecutableDirectory);
+        }
+
+        /// <summary>
+        /// 异步结束进程完成
+        /// </summary>
+        /// <param name="e">结果</param>
+        protected virtual void KillCompleted(KillProcessCompletedEventArgs e)
+        {
+            //用户取消
+            if (e.Cancelled)
+            {
+                this.OnNotify(new NotifyEventArgs("已取消更新。"));
+                return;
+            }
+            //出错
+            if (e.Error != null)
+            {
+                this.OnError(new ErrorEventArgs("结束占用进程失败:{0}。", e.Error.Message.TrimEnd(PERIOD)));
+                return;
+            }
+            //开始下载
             this.DownloadAsync();
         }
 
@@ -139,7 +170,7 @@ namespace WfyUpdate.Update
         }
 
         /// <summary>
-        /// 异步下载结束
+        /// 异步下载完成
         /// </summary>
         /// <param name="e">结果</param>
         protected virtual void DownloadCompleted(DownloadDataCompletedEventArgs e)
@@ -178,7 +209,7 @@ namespace WfyUpdate.Update
         }
 
         /// <summary>
-        /// 异步解压结束
+        /// 异步解压完成
         /// </summary>
         /// <param name="e">结果</param>
         protected virtual void DecompressCompleted(DecompressDataCompletedEventArgs e)

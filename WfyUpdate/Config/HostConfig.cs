@@ -96,14 +96,20 @@ namespace WfyUpdate.Config
         }
 
         /// <summary>
-        /// 杀死目标目录的进程
+        /// 杀死目标目录的所有进程,如果文件被其他程序占用则需手动关闭
         /// </summary>
-        public static void KillHost()
+        public static void KillHosts()
         {
             foreach (Process process in Process.GetProcesses())
             {
-                if (PathRelationUtil.IsParent(ExecutableDirectory, process.ProcessName))
-                    process.Kill();
+                try
+                {
+                    if (PathRelationUtil.IsParent(ExecutableDirectory, process.MainModule.FileName))
+                        process.Kill();
+                }
+                catch
+                {
+                }
             }
         }
 

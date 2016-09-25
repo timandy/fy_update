@@ -23,7 +23,7 @@ namespace WfyUpdate
         {
             //updater
             this.m_Updater.Notify += (sender, e) => this.lblLog.Text = e.Info;
-            this.m_Updater.Progress += (sender, e) => this.progress.Percentage = e.Percentage;
+            this.m_Updater.Progress += (sender, e) => this.progress.Percentage = e.ProgressPercentage;
             this.m_Updater.UpdateCompleted += (sender, e) =>
             {
                 AppRunner.Start(HostConfig.ExecutablePath);

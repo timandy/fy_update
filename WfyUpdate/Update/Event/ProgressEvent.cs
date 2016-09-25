@@ -17,15 +17,15 @@ namespace WfyUpdate.Update.Event
         /// <summary>
         /// 百分比
         /// </summary>
-        public int Percentage { get; private set; }
+        public int ProgressPercentage { get; private set; }
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="percentage">百分比</param>
-        public ProgressEventArgs(int percentage)
+        /// <param name="progressPercentage">进度百分比</param>
+        public ProgressEventArgs(int progressPercentage)
         {
-            this.Percentage = percentage;
+            this.ProgressPercentage = progressPercentage;
         }
     }
 }

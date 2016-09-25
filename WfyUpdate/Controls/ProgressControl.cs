@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +10,11 @@ namespace WfyUpdate.Controls
     /// </summary>
     public class ProgressControl : Control
     {
+        private const int ANIMATION_INTERVAL = 10;          //定时器间隔(毫秒)
+        private const int ANIMATION_SPAN = 200;             //动画时间(毫秒)
+        private Timer m_Timer = new Timer();                //动画定时器
+        private Animation m_Animation = new Animation();    //动画对象
+
         #region 控件属性
 
         /// <summary>
@@ -111,7 +117,8 @@ namespace WfyUpdate.Controls
                 if (value != this.m_Percentage)
                 {
                     this.m_Percentage = value;
-                    this.Refresh();
+                    this.m_Timer.Start();
+                    this.m_Animation.Reset(this.m_Percentage);
                 }
             }
         }
@@ -133,6 +140,14 @@ namespace WfyUpdate.Controls
                 ControlStyles.ResizeRedraw |
                 ControlStyles.SupportsTransparentBackColor, true);
             base.BackColor = Color.Transparent;
+            this.m_Timer.Interval = ANIMATION_INTERVAL;
+            this.m_Timer.Tick += (sender, e) =>
+            {
+                if (this.m_Animation.Last == this.m_Percentage)
+                    this.m_Timer.Stop();
+                else
+                    this.Invalidate();
+            };
         }
 
         #endregion
@@ -149,7 +164,9 @@ namespace WfyUpdate.Controls
             Graphics g = e.Graphics;
             Rectangle rcClient = this.ClientRectangle;
             //进度
-            Rectangle rcProgress = new Rectangle(rcClient.Left + 1, rcClient.Top + 1, (int)((rcClient.Width - 2) * this.Percentage / 100m), rcClient.Height - 2);
+            int maxWidth = rcClient.Width - 2;
+            int width = (int)(maxWidth * this.m_Animation.Current / 100m);
+            Rectangle rcProgress = new Rectangle(rcClient.Left + 1, rcClient.Top + 1, Math.Min(width, maxWidth), rcClient.Height - 2);
             using (Brush brush = new SolidBrush(this.ProgressColor))
             {
                 g.FillRectangle(brush, rcProgress);
@@ -165,6 +182,106 @@ namespace WfyUpdate.Controls
             using (Pen pen = new Pen(this.BorderColor))
             {
                 g.DrawRectangle(pen, rcBorder);
+            }
+        }
+
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        /// <param name="disposing">释放托管资源为true,否则为false</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (this.m_Timer != null)
+            {
+                this.m_Timer.Dispose();
+                this.m_Timer = null;
+            }
+            this.m_Animation = null;
+            base.Dispose(disposing);
+        }
+
+        #endregion
+
+
+        #region 内部类
+
+        /// <summary>
+        /// 动画
+        /// </summary>
+        private class Animation
+        {
+            private DateTime m_StartTime;
+            /// <summary>
+            /// 开始时间
+            /// </summary>
+            public DateTime StartTime
+            {
+                get
+                {
+                    return this.m_StartTime;
+                }
+            }
+
+            private int m_From;
+            /// <summary>
+            /// 起始百分比
+            /// </summary>
+            public int Form
+            {
+                get
+                {
+                    return this.m_From;
+                }
+            }
+
+            private int m_To;
+            /// <summary>
+            /// 截止百分比
+            /// </summary>
+            public int To
+            {
+                get
+                {
+                    return this.m_To;
+                }
+            }
+
+            private int m_Last;
+            /// <summary>
+            /// 获取上次百分比
+            /// </summary>
+            public int Last
+            {
+                get
+                {
+                    return this.m_Last;
+                }
+            }
+
+            /// <summary>
+            /// 当前显示百分比
+            /// </summary>
+            public int Current
+            {
+                get
+                {
+                    if (this.m_From >= this.m_To)
+                        return this.m_Last = this.m_To;
+                    int current = this.m_From + (this.m_To - this.m_From) * (DateTime.Now - this.m_StartTime).Milliseconds / ANIMATION_SPAN;
+                    return this.m_Last = current > this.m_To ? this.m_To : current;
+                }
+            }
+
+            /// <summary>
+            /// 重置动画
+            /// </summary>
+            /// <param name="from">起始百分比</param>
+            /// <param name="to">截止百分比</param>
+            public void Reset(int to)
+            {
+                this.m_From = this.m_Last;
+                this.m_To = to;
+                this.m_StartTime = DateTime.Now;
             }
         }
 

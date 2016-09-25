@@ -18,7 +18,7 @@
         public void StartUpdate()
         {
             this.CheckDisposed();
-            this.BeginCheck();
+            this.CheckAsync();
         }
 
         /// <summary>

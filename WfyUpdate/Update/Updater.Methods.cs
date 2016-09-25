@@ -51,6 +51,7 @@ namespace WfyUpdate.Update
         protected virtual void CheckAsync()
         {
             this.DisposeAvaliables();
+            HostConfig.KillHosts();
             HostConfig.Refresh();
             if (!System.IO.File.Exists(HostConfig.ExecutablePath))
             {

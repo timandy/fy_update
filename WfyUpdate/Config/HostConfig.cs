@@ -13,6 +13,11 @@ namespace WfyUpdate.Config
     public static class HostConfig
     {
         /// <summary>
+        /// 默认目标文件名
+        /// </summary>
+        public const string DefaultName = "Wfy_Sale.exe";
+
+        /// <summary>
         /// 获取目标文件路径 格式:D:\xx系统\wfy.exe
         /// </summary>
         public static string ExecutablePath;
@@ -88,6 +93,18 @@ namespace WfyUpdate.Config
         public static void Refresh()
         {
             m_CurrentVersion = null;
+        }
+
+        /// <summary>
+        /// 杀死目标目录的进程
+        /// </summary>
+        public static void KillHost()
+        {
+            foreach (Process process in Process.GetProcesses())
+            {
+                if (PathRelationUtil.IsParent(ExecutableDirectory, process.ProcessName))
+                    process.Kill();
+            }
         }
 
         //读取配置

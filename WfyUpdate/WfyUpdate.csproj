@@ -95,9 +95,21 @@
     <Compile Include="Model\UpdatePackage.cs" />
     <Compile Include="Model\UpdatePackageCollection.cs" />
     <Compile Include="Net\DecompressDataCompletedEvent.cs" />
+    <Compile Include="Net\DecompressDataStartDelegate.cs" />
     <Compile Include="Net\DecompressProgressChangedEvent.cs" />
-    <Compile Include="Net\DecompressStartDelegate.cs" />
+    <Compile Include="Net\KillProcessCompletedEvent.cs" />
+    <Compile Include="Net\KillProcessStartDelegate.cs" />
+    <Compile Include="Net\KillProgressChangedEvent.cs" />
     <Compile Include="Net\WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.DecompressData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.KillProcess.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.ProgressData.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -122,7 +134,6 @@
     <Compile Include="Util\AppRunner.cs" />
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
-    <Compile Include="Util\PathRelationUtil.cs" />
     <Compile Include="Util\UpdatePackageParser.cs" />
     <Compile Include="Util\Win32.cs" />
   </ItemGroup>

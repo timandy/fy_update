@@ -1,6 +1,5 @@
 ﻿#if !DEBUG
 using System;
-using System.Diagnostics;
 #endif
 using System.IO;
 using System.Windows.Forms;
@@ -15,8 +14,10 @@ namespace WfyUpdate
         //入口
         static void Main(string[] args)
         {
-            HostConfig.ExecutablePath = args == null || args.Length < 1 || string.IsNullOrEmpty(args[0]) ? FilePathUtil.GetAbsolutePath("Wfy_Sale.exe") : args[0];
-#if !DEBUG
+#if DEBUG
+            HostConfig.ExecutablePath = FilePathUtil.GetAbsolutePath("Test\\" + HostConfig.DefaultName);
+#else
+            HostConfig.ExecutablePath = args == null || args.Length < 1 || string.IsNullOrEmpty(args[0]) ? FilePathUtil.GetAbsolutePath(HostConfig.DefaultName) : args[0];
             //必须从临时目录启动
             if (!AppConfig.ExecutablePath.Equals(AppConfig.ExpectExecutablePath, StringComparison.OrdinalIgnoreCase))
             {
@@ -31,13 +32,8 @@ namespace WfyUpdate
                 }
                 return;
             }
-            //结束目标程序所在文件夹的进程
-            foreach (Process process in Process.GetProcesses())
-            {
-                if (PathRelationUtil.IsParent(HostConfig.ExecutableDirectory, process.ProcessName))
-                    process.Kill();
-            }
 #endif
+            //运行
             ExtractAssembly();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -13,6 +13,11 @@ namespace WfyUpdate.Config
     public static class HostConfig
     {
         /// <summary>
+        /// 默认目标文件名
+        /// </summary>
+        public const string DefaultName = "Wfy_Sale.exe";
+
+        /// <summary>
         /// 获取目标文件路径 格式:D:\xx系统\wfy.exe
         /// </summary>
         public static string ExecutablePath;

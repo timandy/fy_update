@@ -6,12 +6,12 @@ namespace WfyUpdate.Net
     /// 解压工作委托
     /// </summary>
     /// <param name="e">参数</param>
-    public delegate void DecompressStartDelegate(DecompressStartArgs e);
+    public delegate void DecompressDataStartDelegate(DecompressDataStartArgs e);
 
     /// <summary>
     /// 解压工作参数
     /// </summary>
-    public class DecompressStartArgs
+    public class DecompressDataStartArgs
     {
         /// <summary>
         /// 异步操作生存期
@@ -40,7 +40,7 @@ namespace WfyUpdate.Net
         /// <param name="data">要解压的数据</param>
         /// <param name="lastEntry">最后一个解压的文件</param>
         /// <param name="destinationDirectory">要解压到的目录</param>
-        public DecompressStartArgs(AsyncOperation asyncOp, byte[] data, string lastEntry, string destinationDirectory)
+        public DecompressDataStartArgs(AsyncOperation asyncOp, byte[] data, string lastEntry, string destinationDirectory)
         {
             this.Operation = asyncOp;
             this.Data = data;

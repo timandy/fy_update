@@ -94,12 +94,12 @@
     <Compile Include="Layout\SmoothingModeGraphics.cs" />
     <Compile Include="Model\UpdatePackage.cs" />
     <Compile Include="Model\UpdatePackageCollection.cs" />
-    <Compile Include="Net\DecompressDataCompletedEvent.cs" />
-    <Compile Include="Net\DecompressDataStartDelegate.cs" />
-    <Compile Include="Net\DecompressProgressChangedEvent.cs" />
-    <Compile Include="Net\KillProcessCompletedEvent.cs" />
-    <Compile Include="Net\KillProcessStartDelegate.cs" />
-    <Compile Include="Net\KillProgressChangedEvent.cs" />
+    <Compile Include="Net\Events\DecompressDataCompletedEvent.cs" />
+    <Compile Include="Net\Events\DecompressDataStartDelegate.cs" />
+    <Compile Include="Net\Events\DecompressProgressChangedEvent.cs" />
+    <Compile Include="Net\Events\KillProcessCompletedEvent.cs" />
+    <Compile Include="Net\Events\KillProcessStartDelegate.cs" />
+    <Compile Include="Net\Events\KillProgressChangedEvent.cs" />
     <Compile Include="Net\WebClientEx.cs">
       <SubType>Component</SubType>
     </Compile>

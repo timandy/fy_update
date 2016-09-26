@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WfyUpdate.Net
+namespace WfyUpdate.Net.Events
 {
     /// <summary>
     /// 解压进度报告事件类型

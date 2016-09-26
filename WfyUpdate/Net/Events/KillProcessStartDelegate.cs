@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WfyUpdate.Net
+namespace WfyUpdate.Net.Events
 {
     /// <summary>
     /// 结束进程工作委托

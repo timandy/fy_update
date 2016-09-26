@@ -12,10 +12,12 @@ namespace WfyUpdate.Util
         /// A window receives this message when the user chooses a command from the Window menu, clicks the maximize button, minimize button, restore button, close button, or moves the form. You can stop the form from moving by filtering this out.
         /// </summary>
         private const int WM_SYSCOMMAND = 0x0112;
+
         /// <summary>
         /// Moves the window.
         /// </summary>
         private const int SC_MOVE = 0xF010;
+
         /// <summary>
         /// In a title bar.
         /// </summary>
@@ -52,7 +54,9 @@ namespace WfyUpdate.Util
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        /// <summary>开始拖动窗口</summary>
+        /// <summary>
+        /// 开始拖动窗口
+        /// </summary>
         /// <param name="hWnd">窗口句柄</param>
         public static void BeginDrag(IntPtr hWnd)
         {

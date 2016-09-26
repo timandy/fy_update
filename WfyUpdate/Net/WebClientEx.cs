@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Net;
 using System.Threading;
+using WfyUpdate.Net.Events;
 
 namespace WfyUpdate.Net
 {

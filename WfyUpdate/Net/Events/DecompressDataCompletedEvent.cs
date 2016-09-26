@@ -1,19 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace WfyUpdate.Net
+namespace WfyUpdate.Net.Events
 {
     /// <summary>
-    /// 结束进程完成事件类型
+    /// 解压数据完成事件类型
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void KillProcessCompletedEventHandler(object sender, KillProcessCompletedEventArgs e);
+    public delegate void DecompressDataCompletedEventHandler(object sender, DecompressDataCompletedEventArgs e);
 
     /// <summary>
-    /// 结束进程完成事件数据
+    /// 解压数据完成事件数据
     /// </summary>
-    public class KillProcessCompletedEventArgs : AsyncCompletedEventArgs
+    public class DecompressDataCompletedEventArgs : AsyncCompletedEventArgs
     {
         /// <summary>
         /// 构造函数
@@ -21,7 +21,7 @@ namespace WfyUpdate.Net
         /// <param name="error">异常</param>
         /// <param name="cancelled">是否取消操作</param>
         /// <param name="userState">用户数据</param>
-        public KillProcessCompletedEventArgs(Exception error, bool cancelled, object userState)
+        public DecompressDataCompletedEventArgs(Exception error, bool cancelled, object userState)
             : base(error, cancelled, userState)
         {
         }

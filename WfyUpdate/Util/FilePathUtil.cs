@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Web;
 
 namespace WfyUpdate.Util
 {
@@ -18,34 +17,6 @@ namespace WfyUpdate.Util
     /// </summary>
     public static class FilePathUtil
     {
-        #region 常量
-
-        #region 静态常量
-        #endregion
-
-        #endregion
-
-
-        #region 属性
-
-        #region 静态属性
-        #endregion
-
-        #endregion
-
-
-        #region 构造
-
-        #region 静态构造
-        #endregion
-
-        #endregion
-
-
-        #region 方法
-
-        #region 静态方法
-
         /// <summary>
         /// 获取绝对路径所在目录
         /// </summary>
@@ -55,6 +26,20 @@ namespace WfyUpdate.Util
         {
             string directory;
             return FilePathUtil.GetDirectoryName(absolutePath, out directory)
+                ? directory
+                : string.Empty;
+        }
+
+        /// <summary>
+        /// 获取相对路径所在目录
+        /// </summary>
+        /// <param name="relativePath">相对路径</param>
+        /// <param name="basePath">基路径</param>
+        /// <returns>所在目录</returns>
+        public static string GetDirectoryName(string relativePath, string basePath)
+        {
+            string directory;
+            return FilePathUtil.GetDirectoryName(relativePath, basePath, out directory)
                 ? directory
                 : string.Empty;
         }
@@ -75,21 +60,6 @@ namespace WfyUpdate.Util
             }
             catch { }
             return false;
-        }
-
-
-        /// <summary>
-        /// 获取相对路径所在目录
-        /// </summary>
-        /// <param name="relativePath">相对路径</param>
-        /// <param name="basePath">基路径</param>
-        /// <returns>所在目录</returns>
-        public static string GetDirectoryName(string relativePath, string basePath)
-        {
-            string directory;
-            return FilePathUtil.GetDirectoryName(relativePath, basePath, out directory)
-                ? directory
-                : string.Empty;
         }
 
         /// <summary>
@@ -172,67 +142,5 @@ namespace WfyUpdate.Util
             catch { }
             return false;
         }
-
-
-        /// <summary>
-        /// 获取文件的相对路径,发生异常时不显示错误消息(基路径为当前应用程序工作目录)
-        /// </summary>
-        /// <param name="absolutePath">绝对路径</param>
-        /// <returns>相对路径,发生异常时返回String.Empty</returns>
-        public static string GetRelativePath(string absolutePath)
-        {
-            string relativePath;
-            return FilePathUtil.GetRelativePath(absolutePath, AppDomain.CurrentDomain.BaseDirectory, out relativePath)
-                ? relativePath
-                : string.Empty;
-        }
-
-        /// <summary>
-        /// 获取文件的相对路径,发生异常时不显示错误消息
-        /// </summary>
-        /// <param name="absolutePath">绝对路径</param>
-        /// <param name="basePath">基路径</param>
-        /// <returns>相对路径,发生异常时返回String.Empty</returns>
-        public static string GetRelativePath(string absolutePath, string basePath)
-        {
-            string relativePath;
-            return FilePathUtil.GetRelativePath(absolutePath, basePath, out relativePath)
-                ? relativePath
-                : string.Empty;
-        }
-
-        /// <summary>
-        /// 获取文件的相对路径,发生异常时不显示错误消息(基路径为当前应用程序工作目录)
-        /// </summary>
-        /// <param name="absolutePath">绝对路径</param>
-        /// <param name="relativePath">相对路径,发生异常时返回String.Empty</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool GetRelativePath(string absolutePath, out string relativePath)
-        {
-            return FilePathUtil.GetRelativePath(absolutePath, AppDomain.CurrentDomain.BaseDirectory, out relativePath);
-        }
-
-        /// <summary>
-        /// 获取文件的相对路径,发生异常时不显示错误消息
-        /// </summary>
-        /// <param name="absolutePath">绝对路径</param>
-        /// <param name="basePath">基路径</param>
-        /// <param name="relativePath">相对路径,发生异常时返回String.Empty</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool GetRelativePath(string absolutePath, string basePath, out string relativePath)
-        {
-            relativePath = string.Empty;
-            try
-            {
-                relativePath = HttpUtility.UrlDecode(new Uri(basePath).MakeRelativeUri(new Uri(absolutePath)).ToString()).Replace('/', '\\');
-                return true;
-            }
-            catch { }
-            return false;
-        }
-
-        #endregion
-
-        #endregion
     }
 }

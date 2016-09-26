@@ -1,4 +1,4 @@
-﻿using WfyUpdate.Update.Event;
+﻿using WfyUpdate.Update.Events;
 
 namespace WfyUpdate.Update
 {

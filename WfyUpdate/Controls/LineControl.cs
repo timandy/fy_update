@@ -66,7 +66,7 @@ namespace WfyUpdate.Controls
                 if (value != this.m_Text)
                 {
                     this.m_Text = value;
-                    this.Refresh();
+                    this.Invalidate();
                 }
             }
         }

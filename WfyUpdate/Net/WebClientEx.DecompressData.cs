@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading;
 using SharpCompress.Archive;
 using SharpCompress.Common;
+using WfyUpdate.Net.Events;
 
 namespace WfyUpdate.Net
 {

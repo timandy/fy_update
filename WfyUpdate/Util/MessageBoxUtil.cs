@@ -7,6 +7,7 @@ namespace WfyUpdate.Util
     /// </summary>
     public static class MessageBoxUtil
     {
+        //主窗口
         private static Form MainForm
         {
             get

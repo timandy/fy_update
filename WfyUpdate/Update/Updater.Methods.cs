@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net;
 using WfyUpdate.Config;
-using WfyUpdate.Model;
 using WfyUpdate.Net.Events;
+using WfyUpdate.Update.Entities;
 using WfyUpdate.Update.Events;
-using WfyUpdate.Util;
 
 namespace WfyUpdate.Update
 {
@@ -24,25 +23,25 @@ namespace WfyUpdate.Update
                 throw new Exception("要更新的程序的配置文件不存在。");
             if (HostConfig.UpdateUrl == null)
                 throw new Exception("没有配置更新地址。");
-            string packagesStr;
+            string text;
             try
             {
-                packagesStr = this.m_WebClient.DownloadString(HostConfig.UpdateUrl + PACKAGES);
+                text = this.m_WebClient.DownloadString(HostConfig.UpdateUrl + PACKAGES);
             }
             catch (Exception exp)
             {
                 throw new Exception(string.Format("下载更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
             }
-            UpdatePackageCollection packages;
+            Packages packages;
             try
             {
-                packages = UpdatePackageParser.Parse(packagesStr);
+                packages = new Packages(text);
             }
             catch (Exception exp)
             {
                 throw new Exception(string.Format("解析更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
             }
-            return packages.Contains(HostConfig.CurrentVersion);
+            return packages.HasAvailable(HostConfig.CurrentVersion);
         }
 
         /// <summary>
@@ -90,24 +89,23 @@ namespace WfyUpdate.Update
                 return;
             }
             //解析
-            UpdatePackageCollection packages;
+            Packages packages;
             try
             {
-                packages = UpdatePackageParser.Parse(e.Result);
+                packages = new Packages(e.Result);
             }
             catch (Exception exp)
             {
                 this.OnError(new ErrorEventArgs("解析更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
                 return;
             }
-            //已最新
-            if (!packages.Contains(HostConfig.CurrentVersion))
+            //可用更新
+            PackageCollection avaliables = packages.GetAvailables(HostConfig.CurrentVersion);
+            if (avaliables.Count < 1)
             {
                 this.OnNotify(new NotifyEventArgs("已是最新版本。"));
                 return;
             }
-            //有新版本
-            UpdatePackageCollection avaliables = UpdatePackageParser.GetAvaliablePackages(packages);
             this.m_Avaliables = avaliables.GetEnumerator();
             //开始更新
             this.OnUpdateStarted(new UpdateStartedEventArgs(avaliables));
@@ -164,7 +162,7 @@ namespace WfyUpdate.Update
                 this.OnUpdateCompleted(new UpdateCompletedEventArgs());
                 return;
             }
-            UpdatePackage package = this.m_Avaliables.Current;
+            IPackage package = this.m_Avaliables.Current;
             this.OnNotify(new NotifyEventArgs("正在下载 {0}。", package.FileName));
             this.m_WebClient.DownloadDataAsync(new Uri(HostConfig.UpdateUrl + package.FileName), package);
         }
@@ -176,7 +174,7 @@ namespace WfyUpdate.Update
         protected virtual void DownloadCompleted(DownloadDataCompletedEventArgs e)
         {
             //验证
-            UpdatePackage package = e.UserState as UpdatePackage;
+            IPackage package = e.UserState as IPackage;
             if (package == null)
             {
                 this.OnError(new ErrorEventArgs("无效的下载操作。"));
@@ -201,7 +199,7 @@ namespace WfyUpdate.Update
         /// 异步解压开始
         /// </summary>
         /// <param name="data">要解压的数据</param>
-        protected virtual void DecompressAsync(byte[] data, UpdatePackage package)
+        protected virtual void DecompressAsync(byte[] data, IPackage package)
         {
             //解压
             this.OnNotify(new NotifyEventArgs("正在解压 {0}。", package.FileName));
@@ -215,7 +213,7 @@ namespace WfyUpdate.Update
         protected virtual void DecompressCompleted(DecompressDataCompletedEventArgs e)
         {
             //验证
-            UpdatePackage package = e.UserState as UpdatePackage;
+            IPackage package = e.UserState as IPackage;
             if (package == null)
             {
                 this.OnError(new ErrorEventArgs("无效的解压操作。"));

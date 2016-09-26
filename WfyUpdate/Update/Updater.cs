@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WfyUpdate.Dispose;
-using WfyUpdate.Model;
 using WfyUpdate.Net;
+using WfyUpdate.Update.Entities;
 using WfyUpdate.Update.Events;
 
 namespace WfyUpdate.Update
@@ -11,10 +11,10 @@ namespace WfyUpdate.Update
     /// </summary>
     public partial class Updater : Disposable, IUpdater
     {
-        private static readonly char[] PERIOD = { '.', '。' };       //句号
+        private static readonly char[] PERIOD = { '.', '。' };      //句号
         private static readonly string PACKAGES = "packages.txt";   //服务端配置文件名
         private WebClientEx m_WebClient;                            //客户端
-        private IEnumerator<UpdatePackage> m_Avaliables;            //更新枚举器
+        private IEnumerator<IPackage> m_Avaliables;                 //更新枚举器
 
         /// <summary>
         /// 构造函数

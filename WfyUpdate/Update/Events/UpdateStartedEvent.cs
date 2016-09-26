@@ -1,5 +1,5 @@
 ﻿using System;
-using WfyUpdate.Model;
+using WfyUpdate.Update.Entities;
 
 namespace WfyUpdate.Update.Events
 {
@@ -18,13 +18,13 @@ namespace WfyUpdate.Update.Events
         /// <summary>
         /// 要下载的更新包集合
         /// </summary>
-        public UpdatePackageCollection Packages { get; private set; }
+        public PackageCollection Packages { get; private set; }
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="packages"></param>
-        public UpdateStartedEventArgs(UpdatePackageCollection packages)
+        /// <param name="packages">更新包集合</param>
+        public UpdateStartedEventArgs(PackageCollection packages)
         {
             this.Packages = packages;
         }

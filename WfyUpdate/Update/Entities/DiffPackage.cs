@@ -1,38 +1,33 @@
 ﻿using System;
 
-namespace WfyUpdate.Model
+namespace WfyUpdate.Update.Entities
 {
     /// <summary>
-    /// 更新包
+    /// 增量跟新包
     /// </summary>
-    public class UpdatePackage : IComparable<UpdatePackage>
+    public class DiffPackage : IPackage, IComparable<DiffPackage>
     {
-        /// <summary>
-        /// 旧版本版本
-        /// </summary>
-        public Version From { get; set; }
-
-        /// <summary>
-        /// 新版本
-        /// </summary>
-        public Version To { get; set; }
-
-        /// <summary>
-        /// 是否全量更新包
-        /// </summary>
-        public bool Full { get; set; }
-
         /// <summary>
         /// 更新包文件名
         /// </summary>
         public string FileName { get; set; }
 
         /// <summary>
+        /// 起始版本
+        /// </summary>
+        public Version From { get; set; }
+
+        /// <summary>
+        /// 目标版本
+        /// </summary>
+        public Version To { get; set; }
+
+        /// <summary>
         /// 比较
         /// </summary>
         /// <param name="other">要比较的更新包</param>
         /// <returns>如果较新返回正数,较旧返回负数,相等返回 0</returns>
-        public int CompareTo(UpdatePackage other)
+        public int CompareTo(DiffPackage other)
         {
             return this.From.CompareTo(other.From);
         }

@@ -91,8 +91,6 @@
     </Compile>
     <Compile Include="Layout\LayoutOptions.cs" />
     <Compile Include="Layout\SmoothingModeGraphics.cs" />
-    <Compile Include="Model\UpdatePackage.cs" />
-    <Compile Include="Model\UpdatePackageCollection.cs" />
     <Compile Include="Net\Events\DecompressDataCompletedEvent.cs" />
     <Compile Include="Net\Events\DecompressDataStartDelegate.cs" />
     <Compile Include="Net\Events\DecompressProgressChangedEvent.cs" />
@@ -118,6 +116,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Update\Entities\DiffPackage.cs" />
+    <Compile Include="Update\Entities\DiffPackageCollection.cs" />
+    <Compile Include="Update\Entities\FullPackage.cs" />
+    <Compile Include="Update\Entities\FullPackageCollection.cs" />
+    <Compile Include="Update\Entities\IPackage.cs" />
+    <Compile Include="Update\Entities\PackageCollection.cs" />
+    <Compile Include="Update\Entities\Packages.cs" />
     <Compile Include="Update\Events\ErrorEvent.cs" />
     <Compile Include="Update\Events\NotifyEvent.cs" />
     <Compile Include="Update\Events\ProgressEvent.cs" />
@@ -133,7 +138,6 @@
     <Compile Include="Util\AppRunner.cs" />
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
-    <Compile Include="Util\UpdatePackageParser.cs" />
     <Compile Include="Util\Win32.cs" />
   </ItemGroup>
   <ItemGroup>

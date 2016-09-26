@@ -3,7 +3,7 @@ using System.Net;
 using WfyUpdate.Config;
 using WfyUpdate.Model;
 using WfyUpdate.Net;
-using WfyUpdate.Update.Event;
+using WfyUpdate.Update.Events;
 using WfyUpdate.Util;
 
 namespace WfyUpdate.Update

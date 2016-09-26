@@ -2,7 +2,7 @@
 using WfyUpdate.Dispose;
 using WfyUpdate.Model;
 using WfyUpdate.Net;
-using WfyUpdate.Update.Event;
+using WfyUpdate.Update.Events;
 
 namespace WfyUpdate.Update
 {

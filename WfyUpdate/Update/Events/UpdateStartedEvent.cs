@@ -1,7 +1,7 @@
 ﻿using System;
 using WfyUpdate.Model;
 
-namespace WfyUpdate.Update.Event
+namespace WfyUpdate.Update.Events
 {
     /// <summary>
     /// 检查完毕,开始更新事件类型

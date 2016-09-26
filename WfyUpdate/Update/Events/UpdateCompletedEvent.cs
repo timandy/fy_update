@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WfyUpdate.Update.Event
+namespace WfyUpdate.Update.Events
 {
     /// <summary>
     /// 更新完成事件类型

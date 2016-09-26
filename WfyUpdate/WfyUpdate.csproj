@@ -119,11 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Update\Event\ErrorEvent.cs" />
-    <Compile Include="Update\Event\NotifyEvent.cs" />
-    <Compile Include="Update\Event\ProgressEvent.cs" />
-    <Compile Include="Update\Event\UpdateCompletedEvent.cs" />
-    <Compile Include="Update\Event\UpdateStartedEvent.cs" />
+    <Compile Include="Update\Events\ErrorEvent.cs" />
+    <Compile Include="Update\Events\NotifyEvent.cs" />
+    <Compile Include="Update\Events\ProgressEvent.cs" />
+    <Compile Include="Update\Events\UpdateCompletedEvent.cs" />
+    <Compile Include="Update\Events\UpdateStartedEvent.cs" />
     <Compile Include="Update\IUpdater.cs" />
     <Compile Include="Update\Updater.cs" />
     <Compile Include="Update\Updater.Dispose.cs" />

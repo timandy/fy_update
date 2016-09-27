@@ -11,8 +11,8 @@ namespace WfyUpdate.Drawing
     /// </summary>
     public class ImageAnimation : IDisposable
     {
-        private const int DEFAULT_ANIMATION_SPAN = 3000;        //默认动画执行时间
-        private const int NONE_INDEX = -1;                      //表示空目标索引
+        internal const int DEFAULT_ANIMATION_SPAN = 3000;       //默认动画执行时间
+        internal const int NONE_INDEX = -1;                     //表示空目标索引
         private List<Image> m_Images = new List<Image>();       //原始图片
         private List<byte[]> m_Frames = new List<byte[]>();     //截至帧集合
         private Random m_Rand = new Random();                   //随机器

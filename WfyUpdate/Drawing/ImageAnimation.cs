@@ -11,6 +11,7 @@ namespace WfyUpdate.Drawing
     /// </summary>
     public class ImageAnimation : IDisposable
     {
+        internal const bool DEFAULT_ANIMATION_RANDOM = true;    //默认动画是否随机
         internal const int DEFAULT_ANIMATION_SPAN = 3000;       //默认动画执行时间
         internal const int NONE_INDEX = -1;                     //表示空目标索引
         private List<Image> m_Images = new List<Image>();       //原始图片
@@ -31,7 +32,7 @@ namespace WfyUpdate.Drawing
             get { return this.m_Stoped; }
         }
 
-        private bool m_Random = true;
+        private bool m_Random = DEFAULT_ANIMATION_RANDOM;
         /// <summary>
         /// 获取或设置是否随机图片
         /// </summary>

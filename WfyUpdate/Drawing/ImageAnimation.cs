@@ -316,7 +316,7 @@ namespace WfyUpdate.Drawing
         #endregion
 
 
-        #region 资源管理
+        #region 释放资源
 
         /// <summary>
         /// 释放原始图片引用

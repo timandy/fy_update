@@ -4,9 +4,9 @@ using System.Linq;
 namespace WfyUpdate.Util
 {
     /// <summary>
-    /// 程序启动工具
+    /// 进程工具
     /// </summary>
-    public static class AppRunner
+    public static class ProcessUtil
     {
         /// <summary>
         /// 运行指定程序,可指定命令行参数

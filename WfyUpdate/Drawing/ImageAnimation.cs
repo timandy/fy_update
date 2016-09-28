@@ -123,7 +123,7 @@ namespace WfyUpdate.Drawing
                 if (this.m_Stoped)
                     return this.m_Current;
                 //数量判断
-                float percent;
+                double percent;
                 switch (this.m_Images.Count)
                 {
                     case 0:
@@ -141,7 +141,7 @@ namespace WfyUpdate.Drawing
                     default:
                         if (this.m_ToIndex == NONE_INDEX)
                             this.m_ToIndex = this.NextToIndex();
-                        percent = (float)((DateTime.Now - this.m_StartTime).TotalMilliseconds / this.m_AnimationSpan);//百分比
+                        percent = (DateTime.Now - this.m_StartTime).TotalMilliseconds / this.m_AnimationSpan;//百分比
                         break;
                 }
                 //计算当前时间点图片像素,如果就一副图片直接复制

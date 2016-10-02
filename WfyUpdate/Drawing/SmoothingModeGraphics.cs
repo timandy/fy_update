@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace WfyUpdate.Layout
+namespace WfyUpdate.Drawing
 {
     /// <summary>
     /// 暂时修改绘图对象的平滑模式,释放时改为原来模式

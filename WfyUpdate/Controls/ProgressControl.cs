@@ -267,7 +267,7 @@ namespace WfyUpdate.Controls
                 {
                     if (this.m_From >= this.m_To)
                         return this.m_Last = this.m_To;
-                    int current = this.m_From + (this.m_To - this.m_From) * (DateTime.Now - this.m_StartTime).Milliseconds / ANIMATION_SPAN;
+                    int current = this.m_From + (this.m_To - this.m_From) * (int)(DateTime.Now - this.m_StartTime).TotalMilliseconds / ANIMATION_SPAN;
                     return this.m_Last = current > this.m_To ? this.m_To : current;
                 }
             }

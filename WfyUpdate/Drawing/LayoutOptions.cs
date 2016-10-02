@@ -2,7 +2,7 @@
 using System.Drawing.Text;
 using System.Windows.Forms;
 
-namespace WfyUpdate.Layout
+namespace WfyUpdate.Drawing
 {
     /// <summary>
     /// 布局操作类

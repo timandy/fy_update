@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WfyUpdate.Properties.Resources.background;
+            this.BackgroundImage = global::WfyUpdate.Properties.Resources.background0;
             this.ClientSize = new System.Drawing.Size(1000, 520);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);

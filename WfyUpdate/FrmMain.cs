@@ -1,16 +1,16 @@
 ﻿using System.Windows.Forms;
 using WfyUpdate.Config;
 using WfyUpdate.Controls;
+using WfyUpdate.Properties;
 using WfyUpdate.Update;
 using WfyUpdate.Util;
 
 namespace WfyUpdate
 {
     //主窗口
-    public partial class FrmMain : BaseForm
+    public partial class FrmMain : AnimationForm
     {
         private const int TIMER_INTERVAL = 100;     //进度刷新间隔
-        private bool m_Loaded;                      //是否已加载
         private int m_Percentage;                   //进度百分比
         private Timer m_Timer = new Timer();        //进度刷新定时器
         private Updater m_Updater = new Updater();  //更新器
@@ -33,7 +33,7 @@ namespace WfyUpdate
             this.m_Updater.Progress += (sender, e) => this.m_Percentage = e.ProgressPercentage;
             this.m_Updater.UpdateCompleted += (sender, e) =>
             {
-                AppRunner.Start(HostConfig.ExecutablePath);
+                ProcessUtil.Start(HostConfig.ExecutablePath);
                 this.CloseCore();
             };
             this.m_Updater.Error += (sender, e) =>
@@ -57,14 +57,18 @@ namespace WfyUpdate
                     this.CloseCore();
             };
             //程序空闲时开始更新
-            Application.Idle += (sender, e) =>
+            AppUtil.Idle(() =>
             {
-                if (this.m_Loaded)
-                    return;
-                this.m_Loaded = true;
                 this.m_Timer.Start();
                 this.m_Updater.StartUpdate();
-            };
+            });
+            //注册背景帧
+            this.AddFrame(Resources.background0);
+            this.AddFrame(Resources.background1);
+            this.AddFrame(Resources.background2);
+            this.AddFrame(Resources.background3);
+            this.AddFrame(Resources.background4);
+            this.AddFrame(Resources.background5);
         }
 
         //释放资源

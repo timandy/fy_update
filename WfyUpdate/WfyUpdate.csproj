@@ -36,6 +36,7 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>..\_Output\Release\</OutputPath>
@@ -52,6 +53,7 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpCompress, Version=0.12.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -68,6 +70,9 @@
   <ItemGroup>
     <Compile Include="Config\AppConfig.cs" />
     <Compile Include="Config\HostConfig.cs" />
+    <Compile Include="Controls\AnimationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,14 +88,16 @@
     <Compile Include="Dispose\Disposable.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Drawing\ImageAnimation.cs" />
+    <Compile Include="Drawing\LayoutOptions.cs" />
+    <Compile Include="Drawing\LockedBitmapData.cs" />
+    <Compile Include="Drawing\SmoothingModeGraphics.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Layout\LayoutOptions.cs" />
-    <Compile Include="Layout\SmoothingModeGraphics.cs" />
     <Compile Include="Net\Events\DecompressDataCompletedEvent.cs" />
     <Compile Include="Net\Events\DecompressDataStartDelegate.cs" />
     <Compile Include="Net\Events\DecompressProgressChangedEvent.cs" />
@@ -135,9 +142,10 @@
     <Compile Include="Update\Updater.IUpdate.cs" />
     <Compile Include="Update\Updater.Methods.cs" />
     <Compile Include="Update\Updater.Properties.cs" />
-    <Compile Include="Util\AppRunner.cs" />
+    <Compile Include="Util\AppUtil.cs" />
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
+    <Compile Include="Util\ProcessUtil.cs" />
     <Compile Include="Util\Win32.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,9 +162,16 @@
   <ItemGroup>
     <None Include="_DLL\SharpCompress.dll" />
     <None Include="app.ico" />
-    <None Include="Resources\background.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\retry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background0.png" />
+    <None Include="Resources\background1.png" />
+    <None Include="Resources\background2.png" />
+    <None Include="Resources\background3.png" />
+    <None Include="Resources\background4.png" />
+    <None Include="Resources\background5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62A86C88-5741-4261-94A1-254BC86331D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Update</RootNamespace>
+    <AssemblyName>Update</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\_Output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>..\_Output\Debug\WfyLiveUpdate.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\_Output\Debug\Update.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>..\_Output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>..\_Output\Release\WfyLiveUpdate.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\_Output\Release\Update.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpCompress, Version=0.12.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_DLL\SharpCompress.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AppConfig.cs" />
+    <Compile Include="Config\HostConfig.cs" />
+    <Compile Include="Controls\AnimationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ButtonControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LineControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ProgressControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dispose\Disposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\ImageAnimation.cs" />
+    <Compile Include="Drawing\LayoutOptions.cs" />
+    <Compile Include="Drawing\LockedBitmapData.cs" />
+    <Compile Include="Drawing\SmoothingModeGraphics.cs" />
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Net\Events\DecompressDataCompletedEvent.cs" />
+    <Compile Include="Net\Events\DecompressDataStartDelegate.cs" />
+    <Compile Include="Net\Events\DecompressProgressChangedEvent.cs" />
+    <Compile Include="Net\Events\KillProcessCompletedEvent.cs" />
+    <Compile Include="Net\Events\KillProcessStartDelegate.cs" />
+    <Compile Include="Net\Events\KillProgressChangedEvent.cs" />
+    <Compile Include="Net\WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.DecompressData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.KillProcess.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebClientEx.ProgressData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Entities\DiffPackage.cs" />
+    <Compile Include="Core\Entities\DiffPackageCollection.cs" />
+    <Compile Include="Core\Entities\FullPackage.cs" />
+    <Compile Include="Core\Entities\FullPackageCollection.cs" />
+    <Compile Include="Core\Entities\IPackage.cs" />
+    <Compile Include="Core\Entities\PackageCollection.cs" />
+    <Compile Include="Core\Entities\Packages.cs" />
+    <Compile Include="Core\Events\ErrorEvent.cs" />
+    <Compile Include="Core\Events\NotifyEvent.cs" />
+    <Compile Include="Core\Events\ProgressEvent.cs" />
+    <Compile Include="Core\Events\UpdateCompletedEvent.cs" />
+    <Compile Include="Core\Events\UpdateStartedEvent.cs" />
+    <Compile Include="Core\IUpdater.cs" />
+    <Compile Include="Core\Updater.cs" />
+    <Compile Include="Core\Updater.Dispose.cs" />
+    <Compile Include="Core\Updater.Events.cs" />
+    <Compile Include="Core\Updater.IUpdate.cs" />
+    <Compile Include="Core\Updater.Methods.cs" />
+    <Compile Include="Core\Updater.Properties.cs" />
+    <Compile Include="Util\AppUtil.cs" />
+    <Compile Include="Util\FilePathUtil.cs" />
+    <Compile Include="Util\MessageBoxUtil.cs" />
+    <Compile Include="Util\ProcessUtil.cs" />
+    <Compile Include="Util\Win32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_DLL\SharpCompress.dll" />
+    <None Include="app.ico" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\retry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background0.png" />
+    <None Include="Resources\background1.png" />
+    <None Include="Resources\background2.png" />
+    <None Include="Resources\background3.png" />
+    <None Include="Resources\background4.png" />
+    <None Include="Resources\background5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DirectUI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

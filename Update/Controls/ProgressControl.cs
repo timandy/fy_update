@@ -275,7 +275,6 @@ namespace Update.Controls
             /// <summary>
             /// 重置动画
             /// </summary>
-            /// <param name="from">起始百分比</param>
             /// <param name="to">截止百分比</param>
             public void Reset(int to)
             {

@@ -199,6 +199,7 @@ namespace Update.Core
         /// 异步解压开始
         /// </summary>
         /// <param name="data">要解压的数据</param>
+        /// <param name="package">更新包</param>
         protected virtual void DecompressAsync(byte[] data, IPackage package)
         {
             //解压

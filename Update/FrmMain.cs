@@ -179,8 +179,8 @@ namespace Update
                 this.m_Timer.Stop();
             };
             //界面
-            this.lblHeader.MouseDown += (sender, e) => Win32.BeginDrag(this.Handle);
-            this.lblFooter.MouseDown += (sender, e) => Win32.BeginDrag(this.Handle);
+            this.lblHeader.MouseDown += (sender, e) => Microsoft.Win32.Util.BeginDrag(this.Handle);
+            this.lblFooter.MouseDown += (sender, e) => Microsoft.Win32.Util.BeginDrag(this.Handle);
             this.btnRetry.Click += (sender, e) =>
             {
                 this.btnRetry.Visible = false;

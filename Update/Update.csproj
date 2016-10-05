@@ -70,30 +70,666 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\AppConfig.cs" />
-    <Compile Include="Config\HostConfig.cs" />
-    <Compile Include="Controls\AnimationForm.cs">
+    <Compile Include="..\Microsoft.Drawing\Classes\ClipGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\ClipGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\DoubleBufferedGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\DoubleBufferedGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\LockedBitmapData.cs">
+      <Link>Microsoft\Drawing\Classes\LockedBitmapData.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\PixelOffsetModeGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\PixelOffsetModeGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\SmoothingModeGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\SmoothingModeGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\TextRenderingHintGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\TextRenderingHintGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Classes\TranslateGraphics.cs">
+      <Link>Microsoft\Drawing\Classes\TranslateGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Interfaces\IWindow.cs">
+      <Link>Microsoft\Drawing\Interfaces\IWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Structs\ColorVector.cs">
+      <Link>Microsoft\Drawing\Structs\ColorVector.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Structs\ColorVectorConverter.cs">
+      <Link>Microsoft\Drawing\Structs\ColorVectorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Util\BufferedGraphicsEx.cs">
+      <Link>Microsoft\Drawing\Util\BufferedGraphicsEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Util\GraphicsEx.cs">
+      <Link>Microsoft\Drawing\Util\GraphicsEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Util\PointEx.cs">
+      <Link>Microsoft\Drawing\Util\PointEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Util\RectangleEx.cs">
+      <Link>Microsoft\Drawing\Util\RectangleEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Drawing\Util\SizeEx.cs">
+      <Link>Microsoft\Drawing\Util\SizeEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\AC_SRC.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\AC_SRC.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\AW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\AW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\BKMODE.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\BKMODE.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\BOOLEAN.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\BOOLEAN.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\CCHILDREN.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\CCHILDREN.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\CS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\CS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\CW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\CW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\DCX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\DCX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\DriverStringOptions.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\DriverStringOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\DS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\DS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\ERROR.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\ERROR.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\FLASHW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\FLASHW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\FORMAT_MESSAGE.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\FORMAT_MESSAGE.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\GA.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\GA.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\GCL.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\GCL.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\GRADIENT_FILL.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\GRADIENT_FILL.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\GW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\GW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\GWL.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\GWL.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\HANDLE.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\HANDLE.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\HKL.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\HKL.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\HT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\HT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\HWND.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\HWND.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\INFINITE.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\INFINITE.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\INPUT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\INPUT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\IOC.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\IOC.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\KEYEVENTF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\KEYEVENTF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\KLF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\KLF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\MA.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\MA.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\MK.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\MK.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\MMIO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\MMIO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\MOUSEDATA.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\MOUSEDATA.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\MOUSEEVENTF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\MOUSEEVENTF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\NULL.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\NULL.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\OBJID.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\OBJID.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\RDW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\RDW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\RGN.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\RGN.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\ROP.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\ROP.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SB.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SB.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SBM.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SBM.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SC.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SC.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SCR.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SCR.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SIF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SIF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SIO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SIO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SM.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SM.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SND.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SND.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SOMAXCONN.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SOMAXCONN.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\STATE_SYSTEM.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\STATE_SYSTEM.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\SWP.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\SWP.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTDT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTDT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTI.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTI.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTM.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTM.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTN.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTN.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\TTS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\TTS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\ULW.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\ULW.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\VK.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\VK.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WAVE_FORMAT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WAVE_FORMAT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WM.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WM.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WSAID.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WSAID.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WSA_FLAG.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WSA_FLAG.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Consts\WS_EX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Consts\WS_EX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Delegates\LPFN_ACCEPTEX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Delegates\LPFN_ACCEPTEX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Delegates\LPFN_CONNECTEX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Delegates\LPFN_CONNECTEX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Delegates\LPFN_DISCONNECTEX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Delegates\LPFN_DISCONNECTEX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\BLENDFUNCTION.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\BLENDFUNCTION.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\COMBOBOXINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\COMBOBOXINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\COPYDATASTRUCT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\COPYDATASTRUCT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\CURSORINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\CURSORINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\FLASHWINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\FLASHWINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\GRADIENT_RECT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\GRADIENT_RECT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\GRADIENT_TRIANGLE.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\GRADIENT_TRIANGLE.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\HARDWAREINPUT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\HARDWAREINPUT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\INPUT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\INPUT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\KEYBDINPUT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\KEYBDINPUT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\MINMAXINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\MINMAXINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\MMCKINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\MMCKINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\MOUSEINPUT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\MOUSEINPUT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\NMHDR.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\NMHDR.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\PAINTSTRUCT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\PAINTSTRUCT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\POINT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\POINT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\RECT.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\RECT.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\SCROLLBARINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\SCROLLBARINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\SCROLLINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\SCROLLINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\TOOLINFO.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\TOOLINFO.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\TRIVERTEX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\TRIVERTEX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\WAVEFORMATEX.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\WAVEFORMATEX.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\WINDOWPOS.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\WINDOWPOS.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\WSABUF.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\WSABUF.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\NativeMethods\Structs\WSAData.cs">
+      <Link>Microsoft\Win32\NativeMethods\Structs\WSAData.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Gdi32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Gdi32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Gdiplus.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Gdiplus.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Kernel32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Kernel32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Msimg32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Msimg32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Shell32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Shell32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\User32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\User32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Winmm.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Winmm.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\UnsafeNativeMethods\Ws2_32.cs">
+      <Link>Microsoft\Win32\UnsafeNativeMethods\Ws2_32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\Util\Kernel32.cs">
+      <Link>Microsoft\Win32\Util\Kernel32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\Util\User32.cs">
+      <Link>Microsoft\Win32\Util\User32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\Util\Ws2_32.cs">
+      <Link>Microsoft\Win32\Util\Ws2_32.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Win32\Util\_Util.cs">
+      <Link>Microsoft\Win32\Util\_Util.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\Animation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\Animation.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\AnimationFrame.cs">
+      <Link>Microsoft\Windows\Forms\Animate\AnimationFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\AnimationFrameType.cs">
+      <Link>Microsoft\Windows\Forms\Animate\AnimationFrameType.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\IAnimation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\IAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\UIImageAnimation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\UIImageAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\UIProgressAnimation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\UIProgressAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.0.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.0.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.1.Layout.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.1.Layout.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.2.Behaviour.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.2.Behaviour.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.3.Appearance.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.3.Appearance.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.4.Render.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.4.Render.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIWindow.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIButton\UIButton.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIButton\UIButton.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.0.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.0.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.1.Layout.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.1.Layout.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.2Behaviour.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.2Behaviour.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.3.Appearance.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.3.Appearance.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.4.Render.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.4.Render.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.5.WndProc.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.5.WndProc.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.6.Events.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.6.Events.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.7.Dispose.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.7.Dispose.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.8.Util.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.8.Util.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIControl\UIControl.UIControlCollection.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIControl\UIControl.UIControlCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.0.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.0.cs</Link>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.1.Layout.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.1.Layout.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.2.Behaviour.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.2.Behaviour.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.3.Appearance.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.3.Appearance.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.4.Render.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.4.Render.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.5.WndProc.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.5.WndProc.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.6.Events.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.6.Events.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIForm\UIForm.7.Dispose.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIForm\UIForm.7.Dispose.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIImage\UIImage.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIImage\UIImage.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UILabel\UILabel.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UILabel\UILabel.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UILine\UILine.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UILine\UILine.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIProgress\UIProgress.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIProgress\UIProgress.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.0.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.0.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.1.Layout.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.1.Layout.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.2.Behaviour.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.2.Behaviour.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.3.Appearance.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.3.Appearance.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.4.Render.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.4.Render.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.5.WndProc.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.5.WndProc.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.6.Events.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.6.Events.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIWinControl\UIWinControl.7.Dispose.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIWinControl\UIWinControl.7.Dispose.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.00.Font.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.00.Font.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.01.CommonColor.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.01.CommonColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.02.ForeColor.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.02.ForeColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.03.BackColor.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.03.BackColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.04.BackColorAero.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.04.BackColorAero.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.05.BorderColor.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.05.BorderColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.06.InnerBorderColor.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.06.InnerBorderColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\DefaultTheme\DefaultTheme.07.String.cs">
+      <Link>Microsoft\Windows\Forms\DefaultTheme\DefaultTheme.07.String.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\AeroStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\AeroStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\BlendStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\BlendStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\BorderVisibleStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\BorderVisibleStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\CornerStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\CornerStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\ImageLayout9.cs">
+      <Link>Microsoft\Windows\Forms\Enums\ImageLayout9.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\RoundStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\RoundStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\ShadowShapeStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\ShadowShapeStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\SizeStyle.cs">
+      <Link>Microsoft\Windows\Forms\Enums\SizeStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Enums\State.cs">
+      <Link>Microsoft\Windows\Forms\Enums\State.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Layout\LayoutData.cs">
+      <Link>Microsoft\Windows\Forms\Layout\LayoutData.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Layout\LayoutOptions.cs">
+      <Link>Microsoft\Windows\Forms\Layout\LayoutOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Layout\LayoutUtils.cs">
+      <Link>Microsoft\Windows\Forms\Layout\LayoutUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.00.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.00.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Method.01.RenderPrepare.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Method.01.RenderPrepare.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Method.02.Render.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Method.02.Render.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Method.03.IDisposable.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Method.03.IDisposable.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Method.04.Override.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Method.04.Override.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.01.Owner.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.01.Owner.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.02.State.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.02.State.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.03.Round.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.03.Round.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.04.BackColor.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.04.BackColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.05.BackColorAero.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.05.BackColorAero.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.06.BackgroundImage.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.06.BackgroundImage.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.07.BackgroundImage9.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.07.BackgroundImage9.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.08.BorderColor.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.08.BorderColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.09.TextAndImage.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.09.TextAndImage.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.10.Text.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.10.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.11.Image.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.11.Image.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.12.Line.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.12.Line.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Sprite\Sprite.Property.13.References.cs">
+      <Link>Microsoft\Windows\Forms\Sprite\Sprite.Property.13.References.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\PaintManager.cs">
+      <Link>Microsoft\Windows\Forms\Util\PaintManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.0.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.0.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.1.HLSColor.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.1.HLSColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.2.Color.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.2.Color.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.3.Image.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.3.Image.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.4.Brush.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.4.Brush.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.5.GraphicsPath.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.5.GraphicsPath.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.6.Render.cs">
+      <Link>Microsoft\Windows\Forms\Util\RenderEngine.6.Render.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft\Disposable.cs">
+      <Link>Microsoft\Disposable.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft\DisposableMini.cs">
+      <Link>Microsoft\DisposableMini.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft\IDisposed.cs">
+      <Link>Microsoft\IDisposed.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft\IDisposeState.cs">
+      <Link>Microsoft\IDisposeState.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft\MathEx.cs">
+      <Link>Microsoft\MathEx.cs</Link>
+    </Compile>
+    <Compile Include="Config\AppConfig.cs" />
+    <Compile Include="Config\HostConfig.cs" />
     <Compile Include="Controls\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\ButtonControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LineControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ProgressControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Dispose\Disposable.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Drawing\ImageAnimation.cs" />
-    <Compile Include="Drawing\LayoutOptions.cs" />
-    <Compile Include="Drawing\LockedBitmapData.cs" />
-    <Compile Include="Drawing\SmoothingModeGraphics.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +784,6 @@
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
     <Compile Include="Util\ProcessUtil.cs" />
-    <Compile Include="Util\Win32.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmMain.resx">
@@ -174,9 +809,6 @@
     <None Include="Resources\background3.png" />
     <None Include="Resources\background4.png" />
     <None Include="Resources\background5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DirectUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

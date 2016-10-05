@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
+using Microsoft.Windows.Forms;
 
 namespace Update.Controls
 {
     /// <summary>
     /// 屏蔽 Alt + F4 窗口
     /// </summary>
-    public class BaseForm : Form
+    public class BaseForm : UIForm
     {
         private bool m_UserClosing;
 

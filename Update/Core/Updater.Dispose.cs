@@ -30,7 +30,7 @@
         /// 释放资源
         /// </summary>
         /// <param name="disposing">释放托管资源为true,否则为false</param>
-        protected override void DisposeCore(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             this.DisposeAvaliables();
             this.DisposeWebClient();

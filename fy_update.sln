@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfyUpdate", "WfyUpdate\WfyUpdate.csproj", "{62A86C88-5741-4261-94A1-254BC86331D4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOC", "DOC", "{9B437B77-3977-4F9C-BA96-FA989A96AB99}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{9012DD46-7E06-4F36-BDB3-8B122B2C102F}"
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG = CHANGELOG
 		README.md = README.md
 		VERSION = VERSION
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update", "src\Update\Update.csproj", "{62A86C88-5741-4261-94A1-254BC86331D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

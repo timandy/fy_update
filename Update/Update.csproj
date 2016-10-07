@@ -812,6 +812,8 @@
     <None Include="Resources\background3.png" />
     <None Include="Resources\background4.png" />
     <None Include="Resources\background5.png" />
+    <None Include="Resources\background6.png" />
+    <None Include="Resources\background7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

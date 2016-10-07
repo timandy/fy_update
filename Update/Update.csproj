@@ -436,6 +436,9 @@
     <Compile Include="..\Microsoft.Windows.Forms\Animate\AnimationFrameType.cs">
       <Link>Microsoft\Windows\Forms\Animate\AnimationFrameType.cs</Link>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\AnimationOperations.cs">
+      <Link>Microsoft\Windows\Forms\Animate\AnimationOperations.cs</Link>
+    </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Animate\IAnimation.cs">
       <Link>Microsoft\Windows\Forms\Animate\IAnimation.cs</Link>
     </Compile>

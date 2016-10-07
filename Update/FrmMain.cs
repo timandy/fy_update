@@ -72,7 +72,7 @@ namespace Update
             this.lnHeader = new UILine();
             this.lnHeader.Name = "lnHeader";
             this.lnHeader.Dock = DockStyle.Top;
-            this.lnHeader.Height = 5;
+            this.lnHeader.Height = 2;
             this.lnHeader.LineWidth = 2;
             this.lnHeader.LineColor = Color.FromArgb(40, 255, 255, 255);
             this.lnHeader.LineDashStyle = DashStyle.Dash;
@@ -86,7 +86,7 @@ namespace Update
             this.lnFooter = new UILine();
             this.lnFooter.Name = "lnFooter";
             this.lnFooter.Dock = DockStyle.Bottom;
-            this.lnFooter.Height = 5;
+            this.lnFooter.Height = 2;
             this.lnFooter.LineWidth = 2;
             this.lnFooter.LineColor = Color.FromArgb(40, 255, 255, 255);
             this.lnFooter.LineDashStyle = DashStyle.Dash;

@@ -24,7 +24,7 @@ namespace Update
                 try
                 {
                     File.Copy(AppConfig.ExecutablePath, AppConfig.ExpectExecutablePath, true);
-                    AppRunner.Start(AppConfig.ExpectExecutablePath, HostConfig.ExecutablePath);
+                    ProcessUtil.Start(AppConfig.ExpectExecutablePath, HostConfig.ExecutablePath);
                 }
                 catch (Exception e)
                 {

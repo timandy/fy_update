@@ -51,12 +51,15 @@ namespace Update
             this.imgBackground = new UIImage();
             this.imgBackground.Name = "imgBackground";
             this.imgBackground.Dock = DockStyle.Fill;
+            this.imgBackground.AnimationRandom = true;
             this.imgBackground.AddFrame(Resources.background0);
             this.imgBackground.AddFrame(Resources.background1);
             this.imgBackground.AddFrame(Resources.background2);
             this.imgBackground.AddFrame(Resources.background3);
             this.imgBackground.AddFrame(Resources.background4);
             this.imgBackground.AddFrame(Resources.background5);
+            this.imgBackground.AddFrame(Resources.background6);
+            this.imgBackground.AddFrame(Resources.background7);
             //
             this.lblHeader = new UILabel();
             this.lblHeader.Name = "lblHeader";

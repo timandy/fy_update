@@ -159,15 +159,5 @@ namespace Update.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] SharpCompress {
-            get {
-                object obj = ResourceManager.GetObject("SharpCompress", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

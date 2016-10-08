@@ -58,11 +58,6 @@
     <DocumentationFile>..\_Output\Release\Update.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpCompress, Version=0.12.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>_DLL\SharpCompress.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -1610,12 +1605,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="_DLL\SharpCompress.dll" />
     <None Include="app.ico" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\retry.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\background0.png" />
     <None Include="Resources\background1.png" />
     <None Include="Resources\background2.png" />
@@ -1624,8 +1614,9 @@
     <None Include="Resources\background5.png" />
     <None Include="Resources\background6.png" />
     <None Include="Resources\background7.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\retry.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

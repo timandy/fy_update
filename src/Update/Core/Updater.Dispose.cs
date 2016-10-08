@@ -17,12 +17,12 @@
         /// <summary>
         /// 释放 WebClient
         /// </summary>
-        protected virtual void DisposeWebClient()
+        protected virtual void DisposeClient()
         {
-            if (this.m_WebClient != null)
+            if (this.m_Client != null)
             {
-                this.m_WebClient.Dispose();
-                this.m_WebClient = null;
+                this.m_Client.Dispose();
+                this.m_Client = null;
             }
         }
 
@@ -33,7 +33,7 @@
         protected override void Dispose(bool disposing)
         {
             this.DisposeAvaliables();
-            this.DisposeWebClient();
+            this.DisposeClient();
         }
     }
 }

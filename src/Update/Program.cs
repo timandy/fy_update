@@ -1,10 +1,9 @@
 ﻿#if !DEBUG
 using System;
-#endif
 using System.IO;
+#endif
 using System.Windows.Forms;
 using Update.Config;
-using Update.Properties;
 using Update.Util;
 
 namespace Update
@@ -34,17 +33,9 @@ namespace Update
             }
 #endif
             //运行
-            ExtractAssembly();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
-        }
-
-        //提取程序集
-        static void ExtractAssembly()
-        {
-            try { File.WriteAllBytes(AppConfig.ExecutableDirectory + "SharpCompress.dll", Resources.SharpCompress); }
-            catch { }
         }
     }
 }

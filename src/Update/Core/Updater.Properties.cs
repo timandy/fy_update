@@ -12,12 +12,12 @@ namespace Update.Core
             get
             {
                 this.CheckDisposed();
-                return this.m_WebClient.Encoding;
+                return this.m_Client.Encoding;
             }
             set
             {
                 this.CheckDisposed();
-                this.m_WebClient.Encoding = value;
+                this.m_Client.Encoding = value;
             }
         }
     }

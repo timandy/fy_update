@@ -197,7 +197,6 @@ namespace Update
                         this.m_DelayTimer.Interval = INTERVAL_DELAY;
                         this.m_DelayTimer.Tick += (ss, ee) => this.CloseCore();
                     }
-                    this.m_RefreshTimer.Stop();
                     this.m_DelayTimer.Start();
                     e.Handled = true;
                 }

@@ -1592,6 +1592,7 @@
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
     <Compile Include="Util\ProcessUtil.cs" />
+    <Compile Include="Util\UpdateUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmUpdate.resx">

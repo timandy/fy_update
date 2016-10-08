@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.IO;
 using System.Threading;
-using SharpCompress.Archive;
-using SharpCompress.Common;
+using SharpCompress.Archives;
+using SharpCompress.Readers;
 using Update.Net.Events;
 
 namespace Update.Net
@@ -126,6 +126,7 @@ namespace Update.Net
                     using (IArchive archive = ArchiveFactory.Open(stream))
                     {
                         this.m_Progress.ToComplete = archive.TotalUncompressSize;
+                        ExtractionOptions options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveAttributes = true, PreserveFileTime = true };
                         IArchiveEntry last = null;
                         foreach (IArchiveEntry entry in archive.Entries)
                         {
@@ -141,7 +142,7 @@ namespace Update.Net
                                 last = entry;
                                 continue;
                             }
-                            entry.WriteToDirectory(e.DestinationDirectory, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                            entry.WriteToDirectory(e.DestinationDirectory, options);
                             this.m_Progress.Completed += entry.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }
@@ -152,7 +153,7 @@ namespace Update.Net
                                 cancelled = true;
                                 return;
                             }
-                            last.WriteToDirectory(e.DestinationDirectory, ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                            last.WriteToDirectory(e.DestinationDirectory, options);
                             this.m_Progress.Completed += last.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }

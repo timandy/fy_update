@@ -1,6 +1,6 @@
 ## 编译说明
-- 默认仅支持 .Net4.0 如果需要使用其他版本 framework，替换 _DLL 目录中的 SharpCompress.dll 为相应的版本，不保证能编译通过。
-- 部署时不需要 SharpCompress.dll 运行时会自动提取。
+- 默认支持 .Net4.0 。
+- 静态导入了 fy_directui(UI) 和 SharpCompress(解压) 库 。
 ### Debug
 - 仅用来调试，无法实现自更新。
 - 调试时,更新目标位于 _Output\Debug\Test 目录下 。

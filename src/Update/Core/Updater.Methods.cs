@@ -26,7 +26,7 @@ namespace Update.Core
             string text;
             try
             {
-                text = this.m_WebClient.DownloadString(HostConfig.UpdateUrl + PACKAGES);
+                text = this.m_Client.DownloadString(HostConfig.UpdateUrl + PACKAGES);
             }
             catch (Exception exp)
             {
@@ -67,7 +67,7 @@ namespace Update.Core
                 return;
             }
             this.OnNotify(new NotifyEventArgs("正在下载更新信息。"));
-            this.m_WebClient.DownloadStringAsync(new Uri(HostConfig.UpdateUrl + PACKAGES));
+            this.m_Client.DownloadStringAsync(new Uri(HostConfig.UpdateUrl + PACKAGES));
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Update.Core
         {
             //结束进程
             this.OnNotify(new NotifyEventArgs("正在结束占用进程。"));
-            this.m_WebClient.KillProcessAsync(HostConfig.ExecutableDirectory);
+            this.m_Client.KillProcessAsync(HostConfig.ExecutableDirectory);
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Update.Core
             }
             IPackage package = this.m_Avaliables.Current;
             this.OnNotify(new NotifyEventArgs("正在下载 {0}。", package.FileName));
-            this.m_WebClient.DownloadDataAsync(new Uri(HostConfig.UpdateUrl + package.FileName), package);
+            this.m_Client.DownloadDataAsync(new Uri(HostConfig.UpdateUrl + package.FileName), package);
         }
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace Update.Core
         {
             //解压
             this.OnNotify(new NotifyEventArgs("正在解压 {0}。", package.FileName));
-            this.m_WebClient.DecompressDataAsync(data, HostConfig.ExecutableName, HostConfig.ExecutableDirectory, package);
+            this.m_Client.DecompressDataAsync(data, HostConfig.ExecutableName, HostConfig.ExecutableDirectory, package);
         }
 
         /// <summary>

@@ -8,11 +8,11 @@ using Update.Net.Events;
 
 namespace Update.Net
 {
-    partial class WebClientEx
+    partial class UpdateClient
     {
-        private DecompressDataStartDelegate m_DecompressDataStart;      //异步解压委托
-        private SendOrPostCallback m_ReportDecompressProgressChanged;   //解压进度报告回调
-        private SendOrPostCallback m_DecompressDataOperationCompleted;  //解压操作完成回调
+        private DecompressDataStartDelegate m_DecompressDataStart;          //异步解压委托
+        private SendOrPostCallback m_ReportDecompressProgressChanged;       //解压进度报告回调
+        private SendOrPostCallback m_DecompressDataOperationCompleted;      //解压操作完成回调
 
 
         #region 事件

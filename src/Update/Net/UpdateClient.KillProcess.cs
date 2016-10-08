@@ -6,7 +6,7 @@ using Update.Net.Events;
 
 namespace Update.Net
 {
-    partial class WebClientEx
+    partial class UpdateClient
     {
         private KillProcessStartDelegate m_KillProcessStart;            //异步结束进程委托
         private SendOrPostCallback m_ReportKillProgressChanged;         //异步结束进程报告回调

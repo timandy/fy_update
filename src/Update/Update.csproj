@@ -745,16 +745,16 @@
     <Compile Include="Net\Events\KillProcessCompletedEvent.cs" />
     <Compile Include="Net\Events\KillProcessStartDelegate.cs" />
     <Compile Include="Net\Events\KillProgressChangedEvent.cs" />
-    <Compile Include="Net\WebClientEx.cs">
+    <Compile Include="Net\UpdateClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Net\WebClientEx.DecompressData.cs">
+    <Compile Include="Net\UpdateClient.DecompressData.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Net\WebClientEx.KillProcess.cs">
+    <Compile Include="Net\UpdateClient.KillProcess.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Net\WebClientEx.ProgressData.cs">
+    <Compile Include="Net\UpdateClient.ProgressData.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

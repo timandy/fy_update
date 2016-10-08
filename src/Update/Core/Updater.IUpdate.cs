@@ -27,7 +27,7 @@
         public void StopUpdate()
         {
             this.CheckDisposed();
-            this.m_WebClient.CancelAsync();
+            this.m_Client.CancelAsync();
         }
     }
 }

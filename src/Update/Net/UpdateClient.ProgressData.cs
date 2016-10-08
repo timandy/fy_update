@@ -1,6 +1,6 @@
 ﻿namespace Update.Net
 {
-    partial class WebClientEx
+    partial class UpdateClient
     {
         /// <summary>
         /// 进度数据

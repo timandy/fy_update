@@ -10,13 +10,13 @@ namespace Update.Net
     /// 异步操作网络客户端 by 许崇雷
     /// </summary>
     [ToolboxItem(false)]
-    public partial class WebClientEx : WebClient
+    public partial class UpdateClient : WebClient
     {
-        private bool m_InitAsync;           //是否已初始化异步操作
-        private bool m_Cancelled;           //是否取消异步操作
-        private int m_CallNesting;          //如果大于 0 表示有异步工作正在进行
-        private AsyncOperation m_AsyncOp;   //异步操作生存期
-        private ProgressData m_Progress;    //异步操作进度数据
+        private bool m_InitAsync;               //是否已初始化异步操作
+        private bool m_Cancelled;               //是否取消异步操作
+        private int m_CallNesting;              //如果大于 0 表示有异步工作正在进行
+        private AsyncOperation m_AsyncOp;       //异步操作生存期
+        private ProgressData m_Progress;        //异步操作进度数据
 
 
         #region 属性

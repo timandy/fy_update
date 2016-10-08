@@ -728,6 +728,816 @@
     <Compile Include="..\Microsoft\MathEx.cs">
       <Link>Microsoft\MathEx.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Archives\AbstractArchive.cs">
+      <Link>SharpCompress\Archives\AbstractArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\AbstractWritableArchive.cs">
+      <Link>SharpCompress\Archives\AbstractWritableArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\ArchiveFactory.cs">
+      <Link>SharpCompress\Archives\ArchiveFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\GZip\GZipArchive.cs">
+      <Link>SharpCompress\Archives\GZip\GZipArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\GZip\GZipArchiveEntry.cs">
+      <Link>SharpCompress\Archives\GZip\GZipArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\GZip\GZipWritableArchiveEntry.cs">
+      <Link>SharpCompress\Archives\GZip\GZipWritableArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IArchive.cs">
+      <Link>SharpCompress\Archives\IArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IArchiveEntry.cs">
+      <Link>SharpCompress\Archives\IArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IArchiveEntryExtensions.cs">
+      <Link>SharpCompress\Archives\IArchiveEntryExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IArchiveExtensions.cs">
+      <Link>SharpCompress\Archives\IArchiveExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IArchiveExtractionListener.cs">
+      <Link>SharpCompress\Archives\IArchiveExtractionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IWritableArchive.cs">
+      <Link>SharpCompress\Archives\IWritableArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IWritableArchiveEntry.cs">
+      <Link>SharpCompress\Archives\IWritableArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\IWritableArchiveExtensions.cs">
+      <Link>SharpCompress\Archives\IWritableArchiveExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\FileInfoRarArchiveVolume.cs">
+      <Link>SharpCompress\Archives\Rar\FileInfoRarArchiveVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\FileInfoRarFilePart.cs">
+      <Link>SharpCompress\Archives\Rar\FileInfoRarFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\RarArchive.cs">
+      <Link>SharpCompress\Archives\Rar\RarArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\RarArchive.Extensions.cs">
+      <Link>SharpCompress\Archives\Rar\RarArchive.Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\RarArchiveEntry.cs">
+      <Link>SharpCompress\Archives\Rar\RarArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\RarArchiveEntryFactory.cs">
+      <Link>SharpCompress\Archives\Rar\RarArchiveEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\RarArchiveVolumeFactory.cs">
+      <Link>SharpCompress\Archives\Rar\RarArchiveVolumeFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\SeekableFilePart.cs">
+      <Link>SharpCompress\Archives\Rar\SeekableFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Rar\StreamRarArchiveVolume.cs">
+      <Link>SharpCompress\Archives\Rar\StreamRarArchiveVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\SevenZip\SevenZipArchive.cs">
+      <Link>SharpCompress\Archives\SevenZip\SevenZipArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\SevenZip\SevenZipArchiveEntry.cs">
+      <Link>SharpCompress\Archives\SevenZip\SevenZipArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Tar\TarArchive.cs">
+      <Link>SharpCompress\Archives\Tar\TarArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Tar\TarArchiveEntry.cs">
+      <Link>SharpCompress\Archives\Tar\TarArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Tar\TarWritableArchiveEntry.cs">
+      <Link>SharpCompress\Archives\Tar\TarWritableArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Zip\ZipArchive.cs">
+      <Link>SharpCompress\Archives\Zip\ZipArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Zip\ZipArchiveEntry.cs">
+      <Link>SharpCompress\Archives\Zip\ZipArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Archives\Zip\ZipWritableArchiveEntry.cs">
+      <Link>SharpCompress\Archives\Zip\ZipWritableArchiveEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ArchiveEncoding.cs">
+      <Link>SharpCompress\Common\ArchiveEncoding.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ArchiveException.cs">
+      <Link>SharpCompress\Common\ArchiveException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ArchiveExtractionEventArgs.cs">
+      <Link>SharpCompress\Common\ArchiveExtractionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ArchiveType.cs">
+      <Link>SharpCompress\Common\ArchiveType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\CompressedBytesReadEventArgs.cs">
+      <Link>SharpCompress\Common\CompressedBytesReadEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\CompressionType.cs">
+      <Link>SharpCompress\Common\CompressionType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\CryptographicException.cs">
+      <Link>SharpCompress\Common\CryptographicException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Entry.cs">
+      <Link>SharpCompress\Common\Entry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\EntryStream.cs">
+      <Link>SharpCompress\Common\EntryStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ExtractionException.cs">
+      <Link>SharpCompress\Common\ExtractionException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\FilePart.cs">
+      <Link>SharpCompress\Common\FilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\FilePartExtractionBeginEventArgs.cs">
+      <Link>SharpCompress\Common\FilePartExtractionBeginEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\FlagUtility.cs">
+      <Link>SharpCompress\Common\FlagUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\GZip\GZipEntry.cs">
+      <Link>SharpCompress\Common\GZip\GZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\GZip\GZipFilePart.cs">
+      <Link>SharpCompress\Common\GZip\GZipFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\GZip\GZipVolume.cs">
+      <Link>SharpCompress\Common\GZip\GZipVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\IEntry.cs">
+      <Link>SharpCompress\Common\IEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\IEntry.Extensions.cs">
+      <Link>SharpCompress\Common\IEntry.Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\IExtractionListener.cs">
+      <Link>SharpCompress\Common\IExtractionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\IncompleteArchiveException.cs">
+      <Link>SharpCompress\Common\IncompleteArchiveException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\InvalidFormatException.cs">
+      <Link>SharpCompress\Common\InvalidFormatException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\IVolume.cs">
+      <Link>SharpCompress\Common\IVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\MultipartStreamRequiredException.cs">
+      <Link>SharpCompress\Common\MultipartStreamRequiredException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\MultiVolumeExtractionException.cs">
+      <Link>SharpCompress\Common\MultiVolumeExtractionException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\OptionsBase.cs">
+      <Link>SharpCompress\Common\OptionsBase.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\PasswordProtectedException.cs">
+      <Link>SharpCompress\Common\PasswordProtectedException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\ArchiveHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\ArchiveHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\AVHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\AVHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\CommentHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\CommentHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\EndArchiveHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\EndArchiveHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\FileHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\FileHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\FileNameDecoder.cs">
+      <Link>SharpCompress\Common\Rar\Headers\FileNameDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\Flags.cs">
+      <Link>SharpCompress\Common\Rar\Headers\Flags.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\MarkHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\MarkHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\NewSubHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\NewSubHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\ProtectHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\ProtectHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\RarHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\RarHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\RarHeaderFactory.cs">
+      <Link>SharpCompress\Common\Rar\Headers\RarHeaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\Headers\SignHeader.cs">
+      <Link>SharpCompress\Common\Rar\Headers\SignHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarCryptoBinaryReader.cs">
+      <Link>SharpCompress\Common\Rar\RarCryptoBinaryReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarCryptoWrapper.cs">
+      <Link>SharpCompress\Common\Rar\RarCryptoWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarEntry.cs">
+      <Link>SharpCompress\Common\Rar\RarEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarFilePart.cs">
+      <Link>SharpCompress\Common\Rar\RarFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarRijndael.cs">
+      <Link>SharpCompress\Common\Rar\RarRijndael.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarVolume.cs">
+      <Link>SharpCompress\Common\Rar\RarVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\ReaderExtractionEventArgs.cs">
+      <Link>SharpCompress\Common\ReaderExtractionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\ArchiveDatabase.cs">
+      <Link>SharpCompress\Common\SevenZip\ArchiveDatabase.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\ArchiveReader.cs">
+      <Link>SharpCompress\Common\SevenZip\ArchiveReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CBindPair.cs">
+      <Link>SharpCompress\Common\SevenZip\CBindPair.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CCoderInfo.cs">
+      <Link>SharpCompress\Common\SevenZip\CCoderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CFileItem.cs">
+      <Link>SharpCompress\Common\SevenZip\CFileItem.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CFolder.cs">
+      <Link>SharpCompress\Common\SevenZip\CFolder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CMethodId.cs">
+      <Link>SharpCompress\Common\SevenZip\CMethodId.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\CStreamSwitch.cs">
+      <Link>SharpCompress\Common\SevenZip\CStreamSwitch.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\DataReader.cs">
+      <Link>SharpCompress\Common\SevenZip\DataReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\SevenZipEntry.cs">
+      <Link>SharpCompress\Common\SevenZip\SevenZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\SevenZipFilePart.cs">
+      <Link>SharpCompress\Common\SevenZip\SevenZipFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\SevenZip\SevenZipVolume.cs">
+      <Link>SharpCompress\Common\SevenZip\SevenZipVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\Headers\EntryType.cs">
+      <Link>SharpCompress\Common\Tar\Headers\EntryType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\Headers\TarHeader.cs">
+      <Link>SharpCompress\Common\Tar\Headers\TarHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\TarEntry.cs">
+      <Link>SharpCompress\Common\Tar\TarEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\TarFilePart.cs">
+      <Link>SharpCompress\Common\Tar\TarFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\TarHeaderFactory.cs">
+      <Link>SharpCompress\Common\Tar\TarHeaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\TarReadOnlySubStream.cs">
+      <Link>SharpCompress\Common\Tar\TarReadOnlySubStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Tar\TarVolume.cs">
+      <Link>SharpCompress\Common\Tar\TarVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Volume.cs">
+      <Link>SharpCompress\Common\Volume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\DirectoryEndHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\DirectoryEndHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\DirectoryEntryHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\DirectoryEntryHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\HeaderFlags.cs">
+      <Link>SharpCompress\Common\Zip\Headers\HeaderFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\IgnoreHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\IgnoreHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\LocalEntryHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\LocalEntryHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\LocalEntryHeaderExtraFactory.cs">
+      <Link>SharpCompress\Common\Zip\Headers\LocalEntryHeaderExtraFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\SplitHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\SplitHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\ZipFileEntry.cs">
+      <Link>SharpCompress\Common\Zip\Headers\ZipFileEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\ZipHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\ZipHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\ZipHeaderType.cs">
+      <Link>SharpCompress\Common\Zip\Headers\ZipHeaderType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\PkwareTraditionalCryptoStream.cs">
+      <Link>SharpCompress\Common\Zip\PkwareTraditionalCryptoStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\PkwareTraditionalEncryptionData.cs">
+      <Link>SharpCompress\Common\Zip\PkwareTraditionalEncryptionData.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\SeekableZipFilePart.cs">
+      <Link>SharpCompress\Common\Zip\SeekableZipFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\SeekableZipHeaderFactory.cs">
+      <Link>SharpCompress\Common\Zip\SeekableZipHeaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\StreamingZipFilePart.cs">
+      <Link>SharpCompress\Common\Zip\StreamingZipFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\StreamingZipHeaderFactory.cs">
+      <Link>SharpCompress\Common\Zip\StreamingZipHeaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\WinzipAesCryptoStream.cs">
+      <Link>SharpCompress\Common\Zip\WinzipAesCryptoStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\WinzipAesEncryptionData.cs">
+      <Link>SharpCompress\Common\Zip\WinzipAesEncryptionData.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\WinzipAesKeySize.cs">
+      <Link>SharpCompress\Common\Zip\WinzipAesKeySize.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\ZipCompressionMethod.cs">
+      <Link>SharpCompress\Common\Zip\ZipCompressionMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\ZipEntry.cs">
+      <Link>SharpCompress\Common\Zip\ZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\ZipFilePart.cs">
+      <Link>SharpCompress\Common\Zip\ZipFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\ZipHeaderFactory.cs">
+      <Link>SharpCompress\Common\Zip\ZipHeaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\ZipVolume.cs">
+      <Link>SharpCompress\Common\Zip\ZipVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\ADC\ADCBase.cs">
+      <Link>SharpCompress\Compressors\ADC\ADCBase.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\ADC\ADCStream.cs">
+      <Link>SharpCompress\Compressors\ADC\ADCStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\BZip2\BZip2Constants.cs">
+      <Link>SharpCompress\Compressors\BZip2\BZip2Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\BZip2\BZip2Stream.cs">
+      <Link>SharpCompress\Compressors\BZip2\BZip2Stream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\BZip2\CBZip2InputStream.cs">
+      <Link>SharpCompress\Compressors\BZip2\CBZip2InputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\BZip2\CBZip2OutputStream.cs">
+      <Link>SharpCompress\Compressors\BZip2\CBZip2OutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\BZip2\CRC.cs">
+      <Link>SharpCompress\Compressors\BZip2\CRC.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\CompressionMode.cs">
+      <Link>SharpCompress\Compressors\CompressionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\CRC32.cs">
+      <Link>SharpCompress\Compressors\Deflate\CRC32.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\DeflateManager.cs">
+      <Link>SharpCompress\Compressors\Deflate\DeflateManager.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\DeflateStream.cs">
+      <Link>SharpCompress\Compressors\Deflate\DeflateStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\FlushType.cs">
+      <Link>SharpCompress\Compressors\Deflate\FlushType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\GZipStream.cs">
+      <Link>SharpCompress\Compressors\Deflate\GZipStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\Inflate.cs">
+      <Link>SharpCompress\Compressors\Deflate\Inflate.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\InfTree.cs">
+      <Link>SharpCompress\Compressors\Deflate\InfTree.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\Tree.cs">
+      <Link>SharpCompress\Compressors\Deflate\Tree.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\Zlib.cs">
+      <Link>SharpCompress\Compressors\Deflate\Zlib.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\ZlibBaseStream.cs">
+      <Link>SharpCompress\Compressors\Deflate\ZlibBaseStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\ZlibCodec.cs">
+      <Link>SharpCompress\Compressors\Deflate\ZlibCodec.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\ZlibConstants.cs">
+      <Link>SharpCompress\Compressors\Deflate\ZlibConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Deflate\ZlibStream.cs">
+      <Link>SharpCompress\Compressors\Deflate\ZlibStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Filters\BCJ2Filter.cs">
+      <Link>SharpCompress\Compressors\Filters\BCJ2Filter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Filters\BCJFilter.cs">
+      <Link>SharpCompress\Compressors\Filters\BCJFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Filters\Filter.cs">
+      <Link>SharpCompress\Compressors\Filters\Filter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\AesDecoderStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\AesDecoderStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Bcj2DecoderStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\Bcj2DecoderStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\BitVector.cs">
+      <Link>SharpCompress\Compressors\LZMA\BitVector.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\CRC.cs">
+      <Link>SharpCompress\Compressors\LZMA\CRC.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\DecoderStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\DecoderStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\ICoder.cs">
+      <Link>SharpCompress\Compressors\LZMA\ICoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Log.cs">
+      <Link>SharpCompress\Compressors\LZMA\Log.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaBase.cs">
+      <Link>SharpCompress\Compressors\LZMA\LzmaBase.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaDecoder.cs">
+      <Link>SharpCompress\Compressors\LZMA\LzmaDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaEncoder.cs">
+      <Link>SharpCompress\Compressors\LZMA\LzmaEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaEncoderProperties.cs">
+      <Link>SharpCompress\Compressors\LZMA\LzmaEncoderProperties.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\LzmaStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LZ\CRC.cs">
+      <Link>SharpCompress\Compressors\LZMA\LZ\CRC.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LZ\LzBinTree.cs">
+      <Link>SharpCompress\Compressors\LZMA\LZ\LzBinTree.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LZ\LzInWindow.cs">
+      <Link>SharpCompress\Compressors\LZMA\LZ\LzInWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LZ\LzOutWindow.cs">
+      <Link>SharpCompress\Compressors\LZMA\LZ\LzOutWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\RangeCoder\RangeCoder.cs">
+      <Link>SharpCompress\Compressors\LZMA\RangeCoder\RangeCoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBit.cs">
+      <Link>SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBit.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBitTree.cs">
+      <Link>SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBitTree.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Registry.cs">
+      <Link>SharpCompress\Compressors\LZMA\Registry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Utilites\CrcBuilderStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\Utilites\CrcBuilderStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Utilites\CrcCheckStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\Utilites\CrcCheckStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Utilites\IPasswordProvider.cs">
+      <Link>SharpCompress\Compressors\LZMA\Utilites\IPasswordProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\Utilites\Utils.cs">
+      <Link>SharpCompress\Compressors\LZMA\Utilites\Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\FreqData.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\FreqData.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\ModelPPM.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\ModelPPM.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\Pointer.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\Pointer.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\PPMContext.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\PPMContext.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\RangeCoder.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\RangeCoder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\RarMemBlock.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\RarMemBlock.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\RarNode.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\RarNode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\SEE2Context.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\SEE2Context.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\State.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\State.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\StateRef.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\StateRef.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\H\SubAllocator.cs">
+      <Link>SharpCompress\Compressors\PPMd\H\SubAllocator.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\Allocator.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\Allocator.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\Coder.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\Coder.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\MemoryNode.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\MemoryNode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\Model.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\Model.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\ModelRestorationMethod.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\ModelRestorationMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\Pointer.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\Pointer.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\PpmContext.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\PpmContext.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\PpmState.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\PpmState.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\I1\See2Context.cs">
+      <Link>SharpCompress\Compressors\PPMd\I1\See2Context.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\PpmdProperties.cs">
+      <Link>SharpCompress\Compressors\PPMd\PpmdProperties.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\PpmdStream.cs">
+      <Link>SharpCompress\Compressors\PPMd\PpmdStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\PPMd\PpmdVersion.cs">
+      <Link>SharpCompress\Compressors\PPMd\PpmdVersion.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\AudioVariables.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\AudioVariables.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\BitDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\BitDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\CodeType.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\CodeType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\Compress.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\Compress.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\Decode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\Decode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\DistDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\DistDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\FilterType.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\FilterType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\LitDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\LitDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\LowDistDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\LowDistDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\MultDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\MultDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Decode\RepDecode.cs">
+      <Link>SharpCompress\Compressors\Rar\Decode\RepDecode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\MultiVolumeReadOnlyStream.cs">
+      <Link>SharpCompress\Compressors\Rar\MultiVolumeReadOnlyStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\PPM\BlockTypes.cs">
+      <Link>SharpCompress\Compressors\Rar\PPM\BlockTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\RarCRC.cs">
+      <Link>SharpCompress\Compressors\Rar\RarCRC.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\RarStream.cs">
+      <Link>SharpCompress\Compressors\Rar\RarStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Unpack.cs">
+      <Link>SharpCompress\Compressors\Rar\Unpack.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Unpack15.cs">
+      <Link>SharpCompress\Compressors\Rar\Unpack15.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\Unpack20.cs">
+      <Link>SharpCompress\Compressors\Rar\Unpack20.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\UnpackFilter.cs">
+      <Link>SharpCompress\Compressors\Rar\UnpackFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\UnpackUtility.cs">
+      <Link>SharpCompress\Compressors\Rar\UnpackUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\BitInput.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\BitInput.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\RarVM.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\RarVM.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMCmdFlags.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMCmdFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMCommands.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMFlags.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMOpType.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMOpType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMPreparedCommand.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMPreparedCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMPreparedOperand.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMPreparedOperand.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMPreparedProgram.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMPreparedProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMStandardFilters.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMStandardFilters.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMStandardFilterSignature.cs">
+      <Link>SharpCompress\Compressors\Rar\VM\VMStandardFilterSignature.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Converters\DataConverter.cs">
+      <Link>SharpCompress\Converters\DataConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\CryptoException.cs">
+      <Link>SharpCompress\Crypto\CryptoException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\DataLengthException.cs">
+      <Link>SharpCompress\Crypto\DataLengthException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\IBlockCipher.cs">
+      <Link>SharpCompress\Crypto\IBlockCipher.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\ICipherParameters.cs">
+      <Link>SharpCompress\Crypto\ICipherParameters.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\KeyParameter.cs">
+      <Link>SharpCompress\Crypto\KeyParameter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\RijndaelEngine.cs">
+      <Link>SharpCompress\Crypto\RijndaelEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\EnumExtensions.cs">
+      <Link>SharpCompress\EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\AppendingStream.cs">
+      <Link>SharpCompress\IO\AppendingStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\BufferedSubStream.cs">
+      <Link>SharpCompress\IO\BufferedSubStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\CountingWritableSubStream.cs">
+      <Link>SharpCompress\IO\CountingWritableSubStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\ListeningStream.cs">
+      <Link>SharpCompress\IO\ListeningStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\MarkingBinaryReader.cs">
+      <Link>SharpCompress\IO\MarkingBinaryReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\NonDisposingStream.cs">
+      <Link>SharpCompress\IO\NonDisposingStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\ReadOnlySubStream.cs">
+      <Link>SharpCompress\IO\ReadOnlySubStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\RewindableStream.cs">
+      <Link>SharpCompress\IO\RewindableStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\IO\StreamingMode.cs">
+      <Link>SharpCompress\IO\StreamingMode.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\LazyReadOnlyCollection.cs">
+      <Link>SharpCompress\LazyReadOnlyCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\AbstractReader.cs">
+      <Link>SharpCompress\Readers\AbstractReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\ExtractionOptions.cs">
+      <Link>SharpCompress\Readers\ExtractionOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\GZip\GZipReader.cs">
+      <Link>SharpCompress\Readers\GZip\GZipReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\IReader.cs">
+      <Link>SharpCompress\Readers\IReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\IReaderExtensions.cs">
+      <Link>SharpCompress\Readers\IReaderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\IReaderExtractionListener.cs">
+      <Link>SharpCompress\Readers\IReaderExtractionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\MultiVolumeRarReader.cs">
+      <Link>SharpCompress\Readers\Rar\MultiVolumeRarReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\NonSeekableStreamFilePart.cs">
+      <Link>SharpCompress\Readers\Rar\NonSeekableStreamFilePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\RarReader.cs">
+      <Link>SharpCompress\Readers\Rar\RarReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\RarReaderEntry.cs">
+      <Link>SharpCompress\Readers\Rar\RarReaderEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\RarReaderVolume.cs">
+      <Link>SharpCompress\Readers\Rar\RarReaderVolume.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Rar\SingleVolumeRarReader.cs">
+      <Link>SharpCompress\Readers\Rar\SingleVolumeRarReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\ReaderFactory.cs">
+      <Link>SharpCompress\Readers\ReaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\ReaderOptions.cs">
+      <Link>SharpCompress\Readers\ReaderOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Tar\TarReader.cs">
+      <Link>SharpCompress\Readers\Tar\TarReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Readers\Zip\ZipReader.cs">
+      <Link>SharpCompress\Readers\Zip\ZipReader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\ReadOnlyCollection.cs">
+      <Link>SharpCompress\ReadOnlyCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Utility.cs">
+      <Link>SharpCompress\Utility.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\AbstractWriter.cs">
+      <Link>SharpCompress\Writers\AbstractWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\GZip\GZipWriter.cs">
+      <Link>SharpCompress\Writers\GZip\GZipWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\IWriter.cs">
+      <Link>SharpCompress\Writers\IWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\IWriterExtensions.cs">
+      <Link>SharpCompress\Writers\IWriterExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\Tar\TarWriter.cs">
+      <Link>SharpCompress\Writers\Tar\TarWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\WriterFactory.cs">
+      <Link>SharpCompress\Writers\WriterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\WriterOptions.cs">
+      <Link>SharpCompress\Writers\WriterOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\Zip\ZipCentralDirectoryEntry.cs">
+      <Link>SharpCompress\Writers\Zip\ZipCentralDirectoryEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\Zip\ZipWriter.cs">
+      <Link>SharpCompress\Writers\Zip\ZipWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\Zip\ZipWriterEntryOptions.cs">
+      <Link>SharpCompress\Writers\Zip\ZipWriterEntryOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\Zip\ZipWriterOptions.cs">
+      <Link>SharpCompress\Writers\Zip\ZipWriterOptions.cs</Link>
+    </Compile>
     <Compile Include="Config\AppConfig.cs" />
     <Compile Include="Config\HostConfig.cs" />
     <Compile Include="Controls\BaseForm.cs">
@@ -815,6 +1625,7 @@
     <None Include="Resources\background6.png" />
     <None Include="Resources\background7.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

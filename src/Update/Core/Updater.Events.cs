@@ -23,7 +23,7 @@ namespace Update.Core
         /// <summary>
         /// 触发错误事件
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">数据</param>
         protected virtual void OnError(ErrorEventArgs e)
         {
             ErrorEventHandler handler = this.Events[EVENT_ERROR] as ErrorEventHandler;
@@ -50,7 +50,7 @@ namespace Update.Core
         /// <summary>
         /// 触发通知事件
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">数据</param>
         protected virtual void OnNotify(NotifyEventArgs e)
         {
             NotifyEventHandler handler = this.Events[EVENT_NOTIFY] as NotifyEventHandler;
@@ -77,10 +77,64 @@ namespace Update.Core
         /// <summary>
         /// 触发进度事件
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">数据</param>
         protected virtual void OnProgress(ProgressEventArgs e)
         {
             ProgressEventHandler handler = this.Events[EVENT_PROGRESS] as ProgressEventHandler;
+            if (handler != null)
+                handler(this, e);
+        }
+
+        //检查开始
+        private static readonly object EVENT_CHECK_STARTED = new object();
+        /// <summary>
+        /// 开始检查
+        /// </summary>
+        public event CheckStartedEventHandler CheckStarted
+        {
+            add
+            {
+                this.Events.AddHandler(EVENT_CHECK_STARTED, value);
+            }
+            remove
+            {
+                this.Events.RemoveHandler(EVENT_CHECK_STARTED, value);
+            }
+        }
+        /// <summary>
+        /// 触发检查开始事件
+        /// </summary>
+        /// <param name="e">数据</param>
+        protected virtual void OnCheckStarted(CheckStartedEventArgs e)
+        {
+            CheckStartedEventHandler handler = this.Events[EVENT_CHECK_STARTED] as CheckStartedEventHandler;
+            if (handler != null)
+                handler(this, e);
+        }
+
+        //检查完成
+        private static readonly object EVENT_CHECK_COMPLETED = new object();
+        /// <summary>
+        /// 检查完成事件
+        /// </summary>
+        public event CheckCompletedEventHandler CheckCompleted
+        {
+            add
+            {
+                this.Events.AddHandler(EVENT_CHECK_COMPLETED, value);
+            }
+            remove
+            {
+                this.Events.RemoveHandler(EVENT_CHECK_COMPLETED, value);
+            }
+        }
+        /// <summary>
+        /// 触发检查完成事件
+        /// </summary>
+        /// <param name="e">数据</param>
+        protected virtual void OnCheckCompleted(CheckCompletedEventArgs e)
+        {
+            CheckCompletedEventHandler handler = this.Events[EVENT_CHECK_COMPLETED] as CheckCompletedEventHandler;
             if (handler != null)
                 handler(this, e);
         }
@@ -90,7 +144,7 @@ namespace Update.Core
         /// <summary>
         /// 开始下载
         /// </summary>
-        public event UpdateCompletedEventHandler UpdateStarted
+        public event UpdateStartedEventHandler UpdateStarted
         {
             add
             {
@@ -102,9 +156,9 @@ namespace Update.Core
             }
         }
         /// <summary>
-        /// 
+        /// 触发更新开始事件
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">数据</param>
         protected virtual void OnUpdateStarted(UpdateStartedEventArgs e)
         {
             UpdateStartedEventHandler handler = this.Events[EVENT_UPDATE_STARTED] as UpdateStartedEventHandler;
@@ -131,7 +185,7 @@ namespace Update.Core
         /// <summary>
         /// 触发更新完成事件
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">数据</param>
         protected virtual void OnUpdateCompleted(UpdateCompletedEventArgs e)
         {
             UpdateCompletedEventHandler handler = this.Events[EVENT_UPDATE_COMPLETED] as UpdateCompletedEventHandler;

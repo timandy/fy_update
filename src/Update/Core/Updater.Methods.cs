@@ -10,44 +10,9 @@ namespace Update.Core
     partial class Updater
     {
         /// <summary>
-        /// 同步检查更新
-        /// </summary>
-        /// <returns>有可用更新返回true,否则为false</returns>
-        protected virtual bool Check()
-        {
-            this.DisposeAvaliables();
-            HostConfig.Refresh();
-            if (!System.IO.File.Exists(HostConfig.ExecutablePath))
-                throw new Exception("要更新的程序不存在。");
-            if (!System.IO.File.Exists(HostConfig.ExecutableConfigPath))
-                throw new Exception("要更新的程序的配置文件不存在。");
-            if (HostConfig.UpdateUrl == null)
-                throw new Exception("没有配置更新地址。");
-            string text;
-            try
-            {
-                text = this.m_Client.DownloadString(HostConfig.UpdateUrl + PACKAGES);
-            }
-            catch (Exception exp)
-            {
-                throw new Exception(string.Format("下载更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
-            }
-            Packages packages;
-            try
-            {
-                packages = new Packages(text);
-            }
-            catch (Exception exp)
-            {
-                throw new Exception(string.Format("解析更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
-            }
-            return packages.HasAvailable(HostConfig.CurrentVersion);
-        }
-
-        /// <summary>
         /// 异步检查开始
         /// </summary>
-        protected virtual void CheckAsync()
+        protected virtual void ClientCheckAsync()
         {
             this.DisposeAvaliables();
             HostConfig.Refresh();
@@ -67,6 +32,7 @@ namespace Update.Core
                 return;
             }
             this.OnNotify(new NotifyEventArgs("正在下载更新信息。"));
+            this.OnCheckStarted(new CheckStartedEventArgs());
             this.m_Client.DownloadStringAsync(new Uri(HostConfig.UpdateUrl + PACKAGES));
         }
 
@@ -74,7 +40,7 @@ namespace Update.Core
         /// 异步检查完成
         /// </summary>
         /// <param name="e">结果</param>
-        protected virtual void CheckCompleted(DownloadStringCompletedEventArgs e)
+        protected virtual void ClientCheckCompleted(DownloadStringCompletedEventArgs e)
         {
             //用户取消
             if (e.Cancelled)
@@ -101,21 +67,23 @@ namespace Update.Core
             }
             //可用更新
             PackageCollection avaliables = packages.GetAvailables(HostConfig.CurrentVersion);
-            if (avaliables.Count < 1)
-            {
+            bool uptodate = avaliables.Count < 1;
+            if (uptodate)
                 this.OnNotify(new NotifyEventArgs("已是最新版本。"));
+            CheckCompletedEventArgs ce = new CheckCompletedEventArgs(uptodate);
+            this.OnCheckCompleted(ce);
+            if (uptodate || ce.Handled)
                 return;
-            }
             this.m_Avaliables = avaliables.GetEnumerator();
             //开始更新
             this.OnUpdateStarted(new UpdateStartedEventArgs(avaliables));
-            this.KillAsync();
+            this.ClientKillAsync();
         }
 
         /// <summary>
         /// 异步结束进程开始
         /// </summary>
-        protected virtual void KillAsync()
+        protected virtual void ClientKillAsync()
         {
             //结束进程
             this.OnNotify(new NotifyEventArgs("正在结束占用进程。"));
@@ -126,7 +94,7 @@ namespace Update.Core
         /// 异步结束进程完成
         /// </summary>
         /// <param name="e">结果</param>
-        protected virtual void KillCompleted(KillProcessCompletedEventArgs e)
+        protected virtual void ClientKillCompleted(KillProcessCompletedEventArgs e)
         {
             //用户取消
             if (e.Cancelled)
@@ -141,13 +109,13 @@ namespace Update.Core
                 return;
             }
             //开始下载
-            this.DownloadAsync();
+            this.ClientDownloadAsync();
         }
 
         /// <summary>
         /// 异步下载开始
         /// </summary>
-        protected virtual void DownloadAsync()
+        protected virtual void ClientDownloadAsync()
         {
             //验证
             if (this.m_Avaliables == null)
@@ -171,7 +139,7 @@ namespace Update.Core
         /// 异步下载完成
         /// </summary>
         /// <param name="e">结果</param>
-        protected virtual void DownloadCompleted(DownloadDataCompletedEventArgs e)
+        protected virtual void ClientDownloadCompleted(DownloadDataCompletedEventArgs e)
         {
             //验证
             IPackage package = e.UserState as IPackage;
@@ -192,7 +160,7 @@ namespace Update.Core
                 this.OnError(new ErrorEventArgs("下载 {0} 失败:{1}。", package.FileName, e.Error.Message.TrimEnd(PERIOD)));
                 return;
             }
-            this.DecompressAsync(e.Result, package);
+            this.ClientDecompressAsync(e.Result, package);
         }
 
         /// <summary>
@@ -200,7 +168,7 @@ namespace Update.Core
         /// </summary>
         /// <param name="data">要解压的数据</param>
         /// <param name="package">更新包</param>
-        protected virtual void DecompressAsync(byte[] data, IPackage package)
+        protected virtual void ClientDecompressAsync(byte[] data, IPackage package)
         {
             //解压
             this.OnNotify(new NotifyEventArgs("正在解压 {0}。", package.FileName));
@@ -211,7 +179,7 @@ namespace Update.Core
         /// 异步解压完成
         /// </summary>
         /// <param name="e">结果</param>
-        protected virtual void DecompressCompleted(DecompressDataCompletedEventArgs e)
+        protected virtual void ClientDecompressCompleted(DecompressDataCompletedEventArgs e)
         {
             //验证
             IPackage package = e.UserState as IPackage;
@@ -233,7 +201,7 @@ namespace Update.Core
                 return;
             }
             //继续下一个
-            this.DownloadAsync();
+            this.ClientDownloadAsync();
         }
     }
 }

@@ -16,20 +16,35 @@ namespace Update
     /// </summary>
     public partial class FrmUpdate : BaseForm
     {
-        private const int TIMER_INTERVAL = 100;     //进度刷新间隔
-        private int m_Percentage;                   //进度百分比
-        private Timer m_Timer = new Timer();        //进度刷新定时器
-        private Updater m_Updater = new Updater();  //更新器
+        private const int INTERVAL_DELAY = 1000;        //延迟关闭间隔
+        private const int INTERVAL_REFRESH = 100;       //进度刷新间隔
+        private int m_Percentage;                       //进度百分比
+        private Timer m_DelayTimer;                     //延迟关闭定时器
+        private Timer m_RefreshTimer = new Timer();     //进度刷新定时器
+        private Updater m_Updater = new Updater();      //更新器
         //控件
-        private UIImage imgBackground;
-        private UILabel lblHeader;
-        private UILine lnHeader;
-        private UILabel lblFooter;
-        private UILine lnFooter;
-        private UILabel lblLog;
-        private UIProgress prgPercentage;
-        private UIButton btnRetry;
-        private UIButton btnCancel;
+        protected UIImage imgBackground;
+        protected UILabel lblHeader;
+        protected UILine lnHeader;
+        protected UILabel lblFooter;
+        protected UILine lnFooter;
+        protected UILabel lblLog;
+        protected UIProgress prgPercentage;
+        protected UIButton btnRetry;
+        protected UIButton btnCancel;
+        //属性
+        /// <summary>
+        /// 获取或设置是否检查模式
+        /// </summary>
+        public bool CheckMode { get; set; }
+        /// <summary>
+        /// 获取检查完成
+        /// </summary>
+        public bool CheckCompleted { get; protected set; }
+        /// <summary>
+        /// 获取是否最新版本
+        /// </summary>
+        public bool Uptodate { get; protected set; }
 
         /// <summary>
         /// 构造函数
@@ -44,7 +59,7 @@ namespace Update
         /// <summary>
         /// 初始化界面
         /// </summary>
-        private void InitUI()
+        protected virtual void InitUI()
         {
             this.SuspendLayout();
             //
@@ -162,14 +177,31 @@ namespace Update
         /// <summary>
         /// 初始化逻辑
         /// </summary>
-        private void InitLogic()
+        protected virtual void InitLogic()
         {
             //定时器
-            this.m_Timer.Interval = TIMER_INTERVAL;
-            this.m_Timer.Tick += (sender, e) => this.prgPercentage.Percentage = this.m_Percentage;
+            this.m_RefreshTimer.Interval = INTERVAL_REFRESH;
+            this.m_RefreshTimer.Tick += (sender, e) => this.prgPercentage.Percentage = this.m_Percentage;
             //更新器
             this.m_Updater.Notify += (sender, e) => this.lblLog.Text = e.Info;
             this.m_Updater.Progress += (sender, e) => this.m_Percentage = e.ProgressPercentage;
+            this.m_Updater.CheckCompleted += (sender, e) =>
+            {
+                this.CheckCompleted = true;
+                this.Uptodate = e.Uptodate;
+                if (this.CheckMode)
+                {
+                    if (this.m_DelayTimer == null)
+                    {
+                        this.m_DelayTimer = new Timer();
+                        this.m_DelayTimer.Interval = INTERVAL_DELAY;
+                        this.m_DelayTimer.Tick += (ss, ee) => this.CloseCore();
+                    }
+                    this.m_RefreshTimer.Stop();
+                    this.m_DelayTimer.Start();
+                    e.Handled = true;
+                }
+            };
             this.m_Updater.UpdateCompleted += (sender, e) =>
             {
                 ProcessUtil.Start(HostConfig.ExecutablePath);
@@ -179,7 +211,7 @@ namespace Update
             {
                 this.lblLog.Text = e.Error.Message;
                 this.btnRetry.Visible = true;
-                this.m_Timer.Stop();
+                this.m_RefreshTimer.Stop();
             };
             //界面
             this.lblHeader.MouseDown += (sender, e) => Microsoft.Win32.Util.BeginDrag(this.Handle);
@@ -187,7 +219,9 @@ namespace Update
             this.btnRetry.Click += (sender, e) =>
             {
                 this.btnRetry.Visible = false;
-                this.m_Timer.Start();
+                this.CheckCompleted = false;
+                this.Uptodate = false;
+                this.m_RefreshTimer.Start();
                 this.m_Updater.StartUpdate();
             };
             this.btnCancel.Click += (sender, e) =>
@@ -198,7 +232,10 @@ namespace Update
             //程序空闲时开始更新
             AppUtil.Idle(() =>
             {
-                this.m_Timer.Start();
+                this.btnRetry.Visible = false;
+                this.CheckCompleted = false;
+                this.Uptodate = false;
+                this.m_RefreshTimer.Start();
                 this.m_Updater.StartUpdate();
             });
         }
@@ -209,10 +246,15 @@ namespace Update
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Timer != null)
+            if (this.m_DelayTimer != null)
             {
-                this.m_Timer.Dispose();
-                this.m_Timer = null;
+                this.m_DelayTimer.Dispose();
+                this.m_DelayTimer = null;
+            }
+            if (this.m_RefreshTimer != null)
+            {
+                this.m_RefreshTimer.Dispose();
+                this.m_RefreshTimer = null;
             }
             if (this.m_Updater != null)
             {

@@ -126,7 +126,7 @@ namespace Update.Net
                     using (IArchive archive = ArchiveFactory.Open(stream))
                     {
                         this.m_Progress.ToComplete = archive.TotalUncompressSize;
-                        ExtractionOptions options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveAttributes = true, PreserveFileTime = true };
+                        ExtractionOptions options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveFileTime = true };
                         IArchiveEntry last = null;
                         foreach (IArchiveEntry entry in archive.Entries)
                         {

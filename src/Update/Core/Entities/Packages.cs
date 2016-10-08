@@ -40,7 +40,7 @@ namespace Update.Core.Entities
             foreach (string fileName in fileList)
             {
                 //删除扩展名
-                string shortName = StripTail(fileName);
+                string shortName = StripTail(fileName.Trim());
                 //分割文件名
                 List<string> columns = shortName.Split(VERSION_SPLIT_CHARS, StringSplitOptions.RemoveEmptyEntries)
                     .Where(col => !col.Equals(VERSION_SPLIT_STRING, StringComparison.OrdinalIgnoreCase))

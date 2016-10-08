@@ -35,7 +35,7 @@ namespace Update
             //运行
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            Application.Run(new FrmUpdate());
         }
     }
 }

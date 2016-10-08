@@ -1536,11 +1536,32 @@
     <Compile Include="Controls\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Core\Entities\DiffPackage.cs" />
+    <Compile Include="Core\Entities\DiffPackageCollection.cs" />
+    <Compile Include="Core\Entities\FullPackage.cs" />
+    <Compile Include="Core\Entities\FullPackageCollection.cs" />
+    <Compile Include="Core\Entities\IPackage.cs" />
+    <Compile Include="Core\Entities\PackageCollection.cs" />
+    <Compile Include="Core\Entities\Packages.cs" />
+    <Compile Include="Core\Events\CheckCompletedEvent.cs" />
+    <Compile Include="Core\Events\CheckStartedEvent.cs" />
+    <Compile Include="Core\Events\ErrorEvent.cs" />
+    <Compile Include="Core\Events\NotifyEvent.cs" />
+    <Compile Include="Core\Events\ProgressEvent.cs" />
+    <Compile Include="Core\Events\UpdateCompletedEvent.cs" />
+    <Compile Include="Core\Events\UpdateStartedEvent.cs" />
+    <Compile Include="Core\IUpdater.cs" />
+    <Compile Include="Core\Updater.cs" />
+    <Compile Include="Core\Updater.Dispose.cs" />
+    <Compile Include="Core\Updater.Events.cs" />
+    <Compile Include="Core\Updater.IUpdate.cs" />
+    <Compile Include="Core\Updater.Methods.cs" />
+    <Compile Include="Core\Updater.Properties.cs" />
+    <Compile Include="FrmUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <Compile Include="FrmUpdate.Designer.cs">
+      <DependentUpon>FrmUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Net\Events\DecompressDataCompletedEvent.cs" />
     <Compile Include="Net\Events\DecompressDataStartDelegate.cs" />
@@ -1567,33 +1588,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Core\Entities\DiffPackage.cs" />
-    <Compile Include="Core\Entities\DiffPackageCollection.cs" />
-    <Compile Include="Core\Entities\FullPackage.cs" />
-    <Compile Include="Core\Entities\FullPackageCollection.cs" />
-    <Compile Include="Core\Entities\IPackage.cs" />
-    <Compile Include="Core\Entities\PackageCollection.cs" />
-    <Compile Include="Core\Entities\Packages.cs" />
-    <Compile Include="Core\Events\ErrorEvent.cs" />
-    <Compile Include="Core\Events\NotifyEvent.cs" />
-    <Compile Include="Core\Events\ProgressEvent.cs" />
-    <Compile Include="Core\Events\UpdateCompletedEvent.cs" />
-    <Compile Include="Core\Events\UpdateStartedEvent.cs" />
-    <Compile Include="Core\IUpdater.cs" />
-    <Compile Include="Core\Updater.cs" />
-    <Compile Include="Core\Updater.Dispose.cs" />
-    <Compile Include="Core\Updater.Events.cs" />
-    <Compile Include="Core\Updater.IUpdate.cs" />
-    <Compile Include="Core\Updater.Methods.cs" />
-    <Compile Include="Core\Updater.Properties.cs" />
     <Compile Include="Util\AppUtil.cs" />
     <Compile Include="Util\FilePathUtil.cs" />
     <Compile Include="Util\MessageBoxUtil.cs" />
     <Compile Include="Util\ProcessUtil.cs" />
+    <Compile Include="Util\UpdateUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUpdate.resx">
+      <DependentUpon>FrmUpdate.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

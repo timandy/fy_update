@@ -14,7 +14,7 @@ namespace Update
     /// <summary>
     /// 主窗口
     /// </summary>
-    public partial class FrmMain : BaseForm
+    public partial class FrmUpdate : BaseForm
     {
         private const int TIMER_INTERVAL = 100;     //进度刷新间隔
         private int m_Percentage;                   //进度百分比
@@ -34,7 +34,7 @@ namespace Update
         /// <summary>
         /// 构造函数
         /// </summary>
-        public FrmMain()
+        public FrmUpdate()
         {
             InitializeComponent();
             this.InitUI();

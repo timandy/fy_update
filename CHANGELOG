@@ -1,9 +1,13 @@
 请在 master 分支上查看此文件。
 
+v2.3.0
+静态导入 SharpCompress 库,运行时不再提取 dll。
+部分代码重构。
+
 v2.2.0
-使用 directui 重构界面
-代码结构跳帧
-修复若干 bug
+使用 directui 重构界面。
+代码结构跳帧。
+修复若干 bug。
 
 v2.1.1
 修复进度条 bug。

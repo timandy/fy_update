@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using Update.Util;
 
@@ -19,6 +20,18 @@ namespace Update.Config
             get
             {
                 return m_Temp ?? (m_Temp = Path.GetTempPath());
+            }
+        }
+
+        private static string m_AssemblyPath;
+        /// <summary>
+        /// 获取当前代码程序集的路径 格式:D:\xx系统\update.exe
+        /// </summary>
+        public static string AssemblyPath
+        {
+            get
+            {
+                return m_AssemblyPath ?? (m_AssemblyPath = Assembly.GetExecutingAssembly().Location);
             }
         }
 

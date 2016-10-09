@@ -15,12 +15,19 @@ namespace Update.Config
         /// <summary>
         /// 默认目标文件名
         /// </summary>
-        public const string DefaultName = "Wfy_Sale.exe";
+        public const string DEFAULT_NAME = "Wfy_Sale.exe";
 
+        private static string m_ExecutablePath;
         /// <summary>
         /// 获取目标文件路径 格式:D:\xx系统\wfy.exe
         /// </summary>
-        public static string ExecutablePath;
+        public static string ExecutablePath
+        {
+            get
+            {
+                return m_ExecutablePath ?? (m_ExecutablePath = AppConfig.ExecutablePath);
+            }
+        }
 
         private static string m_ExecutableConfigPath;
         /// <summary>
@@ -88,9 +95,23 @@ namespace Update.Config
         }
 
         /// <summary>
+        /// 初始化目标文件配置
+        /// </summary>
+        /// <param name="executablePath">目标文件路径</param>
+        public static void Init(string executablePath)
+        {
+            m_ExecutablePath = executablePath;
+            m_ExecutableConfigPath = null;
+            m_ExecutableDirectory = null;
+            m_ExecutableName = null;
+            m_CurrentVersion = null;
+            m_UpdateUrl = null;
+        }
+
+        /// <summary>
         /// 刷新目标程序版本
         /// </summary>
-        public static void Refresh()
+        public static void RefreshVersion()
         {
             m_CurrentVersion = null;
         }

@@ -51,7 +51,7 @@ namespace Update.Core
             //出错
             if (e.Error != null)
             {
-                this.OnError(new ErrorEventArgs("下载更新信息失败:{0}。", e.Error.Message.TrimEnd(PERIOD)));
+                this.OnError(new ErrorEventArgs("下载更新信息失败：{0}。", e.Error.Message.TrimEnd(PERIOD)));
                 return;
             }
             //解析
@@ -62,14 +62,13 @@ namespace Update.Core
             }
             catch (Exception exp)
             {
-                this.OnError(new ErrorEventArgs("解析更新信息失败:{0}。", exp.Message.TrimEnd(PERIOD)));
+                this.OnError(new ErrorEventArgs("解析更新信息失败：{0}。", exp.Message.TrimEnd(PERIOD)));
                 return;
             }
             //可用更新
             PackageCollection avaliables = packages.GetAvailables(HostConfig.CurrentVersion);
             bool uptodate = avaliables.Count < 1;
-            if (uptodate)
-                this.OnNotify(new NotifyEventArgs("已是最新版本。"));
+            this.OnNotify(new NotifyEventArgs(uptodate ? "已是最新版本。" : "发现新版本。"));
             CheckCompletedEventArgs ce = new CheckCompletedEventArgs(uptodate);
             this.OnCheckCompleted(ce);
             if (uptodate || ce.Handled)
@@ -105,7 +104,7 @@ namespace Update.Core
             //出错
             if (e.Error != null)
             {
-                this.OnError(new ErrorEventArgs("结束占用进程失败:{0}。", e.Error.Message.TrimEnd(PERIOD)));
+                this.OnError(new ErrorEventArgs("结束占用进程失败：{0}。", e.Error.Message.TrimEnd(PERIOD)));
                 return;
             }
             //开始下载
@@ -157,7 +156,7 @@ namespace Update.Core
             //出错
             if (e.Error != null)
             {
-                this.OnError(new ErrorEventArgs("下载 {0} 失败:{1}。", package.FileName, e.Error.Message.TrimEnd(PERIOD)));
+                this.OnError(new ErrorEventArgs("下载 {0} 失败：{1}。", package.FileName, e.Error.Message.TrimEnd(PERIOD)));
                 return;
             }
             this.ClientDecompressAsync(e.Result, package);
@@ -197,7 +196,7 @@ namespace Update.Core
             //出错
             if (e.Error != null)
             {
-                this.OnError(new ErrorEventArgs("解压 {0} 失败:{1}。", package.FileName, e.Error.Message.TrimEnd(PERIOD)));
+                this.OnError(new ErrorEventArgs("解压 {0} 失败：{1}。", package.FileName, e.Error.Message.TrimEnd(PERIOD)));
                 return;
             }
             //继续下一个

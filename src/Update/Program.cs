@@ -14,9 +14,9 @@ namespace Update
         static void Main(string[] args)
         {
 #if DEBUG
-            HostConfig.ExecutablePath = FilePathUtil.GetAbsolutePath("Test\\" + HostConfig.DefaultName);
+            HostConfig.Init(FilePathUtil.GetAbsolutePath("Test\\" + HostConfig.DEFAULT_NAME));
 #else
-            HostConfig.ExecutablePath = args == null || args.Length < 1 || string.IsNullOrEmpty(args[0]) ? FilePathUtil.GetAbsolutePath(HostConfig.DefaultName) : args[0];
+            HostConfig.Init(args == null || args.Length < 1 || string.IsNullOrEmpty(args[0]) ? FilePathUtil.GetAbsolutePath(HostConfig.DEFAULT_NAME) : args[0]);
             //必须从临时目录启动
             if (!AppConfig.ExecutablePath.Equals(AppConfig.ExpectExecutablePath, StringComparison.OrdinalIgnoreCase))
             {

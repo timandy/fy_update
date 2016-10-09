@@ -15,7 +15,7 @@ namespace Update.Core
         protected virtual void ClientCheckAsync()
         {
             this.DisposeAvaliables();
-            HostConfig.Refresh();
+            HostConfig.RefreshVersion();
             if (!System.IO.File.Exists(HostConfig.ExecutablePath))
             {
                 this.OnError(new ErrorEventArgs("要更新的程序不存在。"));

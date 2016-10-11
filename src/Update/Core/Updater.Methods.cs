@@ -171,7 +171,7 @@ namespace Update.Core
         {
             //解压
             this.OnNotify(new NotifyEventArgs("正在解压 {0}。", package.FileName));
-            this.m_Client.DecompressDataAsync(data, HostConfig.ExecutableName, HostConfig.ExecutableDirectory, package);
+            this.m_Client.DecompressDataAsync(data, PACKAGE_DELETE, HostConfig.ExecutableName, HostConfig.ExecutableDirectory, package);
         }
 
         /// <summary>

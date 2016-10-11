@@ -11,10 +11,11 @@ namespace Update.Core
     /// </summary>
     public partial class Updater : Disposable, IUpdater
     {
-        private static readonly char[] PERIOD = { '.', '。' };          //句号
-        private static readonly string PACKAGES = "packages.txt";       //服务端配置文件名
-        private UpdateClient m_Client;                                  //客户端
-        private IEnumerator<IPackage> m_Avaliables;                     //更新枚举器
+        private static readonly char[] PERIOD = { '.', '。' };              //句号
+        private static readonly string PACKAGES = "packages.txt";           //服务端更新包列表文件
+        private static readonly string PACKAGE_DELETE = "delete.txt";       //更新包要删除列表文件
+        private UpdateClient m_Client;                                      //客户端
+        private IEnumerator<IPackage> m_Avaliables;                         //更新枚举器
 
         /// <summary>
         /// 构造函数

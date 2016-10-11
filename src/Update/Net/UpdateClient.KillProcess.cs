@@ -160,7 +160,7 @@ namespace Update.Net
         /// </summary>
         /// <param name="directory">进程所在目录</param>
         /// <param name="userToken">用户数据</param>
-        public virtual void KillProcessAsync(string directory, object userToken = null)
+        public void KillProcessAsync(string directory, object userToken = null)
         {
             if (directory == null)
                 throw new ArgumentNullException("directory");

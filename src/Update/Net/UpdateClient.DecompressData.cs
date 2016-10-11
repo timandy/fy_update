@@ -126,6 +126,9 @@ namespace Update.Net
                     using (IArchive archive = ArchiveFactory.Open(stream))
                     {
                         this.m_Progress.ToComplete = archive.TotalUncompressSize;
+                        string deleteEntry = e.DeleteEntry;
+                        string lastEntry = e.LastEntry;
+                        string destinationDirectory = e.DestinationDirectory;
                         ExtractionOptions options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveFileTime = true };
                         IArchiveEntry last = null;
                         foreach (IArchiveEntry entry in archive.Entries)
@@ -137,12 +140,15 @@ namespace Update.Net
                             }
                             if (entry.IsDirectory)
                                 continue;
-                            if (last == null && entry.Key.Equals(e.LastEntry, StringComparison.OrdinalIgnoreCase))
+                            if (last == null && entry.Key.Equals(lastEntry, StringComparison.OrdinalIgnoreCase))
                             {
                                 last = entry;
                                 continue;
                             }
-                            entry.WriteToDirectory(e.DestinationDirectory, options);
+                            if (entry.Key.Equals(deleteEntry, StringComparison.OrdinalIgnoreCase))
+                                DeleteFromDirectory(entry, destinationDirectory, options);
+                            else
+                                entry.WriteToDirectory(destinationDirectory, options);
                             this.m_Progress.Completed += entry.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }
@@ -153,7 +159,10 @@ namespace Update.Net
                                 cancelled = true;
                                 return;
                             }
-                            last.WriteToDirectory(e.DestinationDirectory, options);
+                            if (last.Key.Equals(deleteEntry, StringComparison.OrdinalIgnoreCase))
+                                DeleteFromDirectory(last, destinationDirectory, options);
+                            else
+                                last.WriteToDirectory(destinationDirectory, options);
                             this.m_Progress.Completed += last.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }
@@ -170,6 +179,29 @@ namespace Update.Net
             }
         }
 
+        /// <summary>
+        /// 从目标目录删除压缩文档中的文件列表
+        /// </summary>
+        /// <param name="entry">压缩文档</param>
+        /// <param name="destinationDirectory">目标目录</param>
+        /// <param name="options">操作选项</param>
+        private void DeleteFromDirectory(IArchiveEntry entry, string destinationDirectory, ExtractionOptions options)
+        {
+            using (Stream stream = entry.OpenEntryStream())
+            {
+                using (StreamReader reader = new StreamReader(stream, this.Encoding))
+                {
+                    string file;
+                    while ((file = reader.ReadLine()) != null)
+                    {
+                        file = file.Trim();
+                        if (file.Length > 0)
+                            File.Delete(Path.Combine(destinationDirectory, options.ExtractFullPath ? file : Path.GetFileName(file)));
+                    }
+                }
+            }
+        }
+
         #endregion
 
 
@@ -179,10 +211,11 @@ namespace Update.Net
         /// 开始异步解压
         /// </summary>
         /// <param name="data">要解压的数据</param>
+        /// <param name="deleteEntry">删除列表文件</param>
         /// <param name="lastEntry">最后一个解压的文件</param>
         /// <param name="destinationDirectory">要解压到的目录</param>
         /// <param name="userToken">用户数据</param>
-        public virtual void DecompressDataAsync(byte[] data, string lastEntry, string destinationDirectory, object userToken = null)
+        public virtual void DecompressDataAsync(byte[] data, string deleteEntry, string lastEntry, string destinationDirectory, object userToken = null)
         {
             if (data == null)
                 throw new ArgumentNullException("data");
@@ -192,7 +225,7 @@ namespace Update.Net
             this.m_AsyncOp = operation;
             try
             {
-                this.m_DecompressDataStart.BeginInvoke(new DecompressDataStartArgs(operation, data, lastEntry, destinationDirectory), null, null);
+                this.m_DecompressDataStart.BeginInvoke(new DecompressDataStartArgs(operation, data, deleteEntry, lastEntry, destinationDirectory), null, null);
             }
             catch (Exception error)
             {

@@ -220,7 +220,7 @@ namespace Update.Net
         /// <param name="lastEntry">最后一个解压的文件</param>
         /// <param name="destinationDirectory">要解压到的目录</param>
         /// <param name="userToken">用户数据</param>
-        public virtual void DecompressDataAsync(byte[] data, string deleteEntry, string lastEntry, string destinationDirectory, object userToken = null)
+        public void DecompressDataAsync(byte[] data, string deleteEntry, string lastEntry, string destinationDirectory, object userToken = null)
         {
             if (data == null)
                 throw new ArgumentNullException("data");

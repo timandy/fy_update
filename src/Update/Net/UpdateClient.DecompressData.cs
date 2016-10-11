@@ -195,8 +195,13 @@ namespace Update.Net
                     while ((file = reader.ReadLine()) != null)
                     {
                         file = file.Trim();
-                        if (file.Length > 0)
-                            File.Delete(Path.Combine(destinationDirectory, options.ExtractFullPath ? file : Path.GetFileName(file)));
+                        if (file.Length <= 0)
+                            continue;
+                        file = Path.Combine(destinationDirectory, options.ExtractFullPath ? file : Path.GetFileName(file));
+                        if (Directory.Exists(file))
+                            Directory.Delete(file, true);
+                        else
+                            File.Delete(file);
                     }
                 }
             }

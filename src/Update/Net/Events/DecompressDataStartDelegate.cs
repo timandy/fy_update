@@ -24,6 +24,11 @@ namespace Update.Net.Events
         public byte[] Data { get; private set; }
 
         /// <summary>
+        /// 删除列表文件
+        /// </summary>
+        public string DeleteEntry { get; private set; }
+
+        /// <summary>
         /// 最后一个解压的文件
         /// </summary>
         public string LastEntry { get; private set; }
@@ -38,12 +43,14 @@ namespace Update.Net.Events
         /// </summary>
         /// <param name="asyncOp">异步操作生存期</param>
         /// <param name="data">要解压的数据</param>
+        /// <param name="deleteEntry">删除列表文件</param>
         /// <param name="lastEntry">最后一个解压的文件</param>
         /// <param name="destinationDirectory">要解压到的目录</param>
-        public DecompressDataStartArgs(AsyncOperation asyncOp, byte[] data, string lastEntry, string destinationDirectory)
+        public DecompressDataStartArgs(AsyncOperation asyncOp, byte[] data, string deleteEntry, string lastEntry, string destinationDirectory)
         {
             this.Operation = asyncOp;
             this.Data = data;
+            this.DeleteEntry = deleteEntry;
             this.LastEntry = lastEntry;
             this.DestinationDirectory = destinationDirectory;
         }

@@ -533,6 +533,9 @@
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UILine\UILine.cs">
       <Link>Microsoft\Windows\Forms\Controls\UILine\UILine.cs</Link>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIPanel\UIPanel.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIPanel\UIPanel.cs</Link>
+    </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UIProgress\UIProgress.cs">
       <Link>Microsoft\Windows\Forms\Controls\UIProgress\UIProgress.cs</Link>
     </Compile>

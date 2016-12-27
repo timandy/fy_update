@@ -116,7 +116,7 @@ namespace Update
             this.lblLog.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             this.lblLog.Location = new Point(85, 232);
             this.lblLog.Size = new Size(830, 40);
-            this.lblLog.Padding = new System.Windows.Forms.Padding(4);
+            this.lblLog.Padding = new Padding(4);
             this.lblLog.Font = new Font("微软雅黑", 15F);
             this.lblLog.TextAlign = ContentAlignment.MiddleLeft;
             this.lblLog.ForeColor = Color.FromArgb(200, 255, 255, 255);

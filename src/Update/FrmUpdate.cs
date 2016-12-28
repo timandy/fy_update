@@ -36,11 +36,11 @@ namespace Update
         /// <summary>
         /// 获取或设置是否检查模式
         /// </summary>
-        public bool CheckMode { get; set; }
+        public bool IsCheckMode { get; set; }
         /// <summary>
-        /// 获取检查完成
+        /// 获取是否检查完成
         /// </summary>
-        public bool CheckCompleted { get; protected set; }
+        public bool IsCheckCompleted { get; protected set; }
         /// <summary>
         /// 获取是否最新版本
         /// </summary>
@@ -54,6 +54,7 @@ namespace Update
             InitializeComponent();
             this.InitUI();
             this.InitLogic();
+            this.Start();
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace Update
             this.lblLog.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             this.lblLog.Location = new Point(85, 232);
             this.lblLog.Size = new Size(830, 40);
-            this.lblLog.Padding = new System.Windows.Forms.Padding(4);
+            this.lblLog.Padding = new Padding(4);
             this.lblLog.Font = new Font("微软雅黑", 15F);
             this.lblLog.TextAlign = ContentAlignment.MiddleLeft;
             this.lblLog.ForeColor = Color.FromArgb(200, 255, 255, 255);
@@ -162,14 +163,14 @@ namespace Update
             this.btnCancel.ImageSize = new Size(16, 16);
             //
             this.UIControls.Add(this.imgBackground);
-            this.UIControls.Add(this.lblHeader);
-            this.UIControls.Add(this.lnHeader);
-            this.UIControls.Add(this.lblFooter);
-            this.UIControls.Add(this.lnFooter);
-            this.UIControls.Add(this.lblLog);
-            this.UIControls.Add(this.prgPercentage);
-            this.UIControls.Add(this.btnRetry);
-            this.UIControls.Add(this.btnCancel);
+            this.imgBackground.UIControls.Add(this.lblHeader);
+            this.imgBackground.UIControls.Add(this.lnHeader);
+            this.imgBackground.UIControls.Add(this.lblFooter);
+            this.imgBackground.UIControls.Add(this.lnFooter);
+            this.imgBackground.UIControls.Add(this.lblLog);
+            this.imgBackground.UIControls.Add(this.prgPercentage);
+            this.imgBackground.UIControls.Add(this.btnRetry);
+            this.imgBackground.UIControls.Add(this.btnCancel);
             //
             this.ResumeLayout(false);
         }
@@ -187,17 +188,11 @@ namespace Update
             this.m_Updater.Progress += (sender, e) => this.m_Percentage = e.ProgressPercentage;
             this.m_Updater.CheckCompleted += (sender, e) =>
             {
-                this.CheckCompleted = true;
+                this.IsCheckCompleted = true;
                 this.Uptodate = e.Uptodate;
-                if (this.CheckMode)
+                if (this.IsCheckMode)
                 {
-                    if (this.m_DelayTimer == null)
-                    {
-                        this.m_DelayTimer = new Timer();
-                        this.m_DelayTimer.Interval = INTERVAL_DELAY;
-                        this.m_DelayTimer.Tick += (ss, ee) => this.CloseCore();
-                    }
-                    this.m_DelayTimer.Start();
+                    this.CheckCompleted();
                     e.Handled = true;
                 }
             };
@@ -218,7 +213,7 @@ namespace Update
             this.btnRetry.Click += (sender, e) =>
             {
                 this.btnRetry.Visible = false;
-                this.CheckCompleted = false;
+                this.IsCheckCompleted = false;
                 this.Uptodate = false;
                 this.m_RefreshTimer.Start();
                 this.m_Updater.StartUpdate();
@@ -228,15 +223,59 @@ namespace Update
                 if (MessageBoxUtil.Confirm("您确定要退出更新？") == DialogResult.OK)
                     this.CloseCore();
             };
-            //程序空闲时开始更新
+        }
+
+        /// <summary>
+        /// 空闲时开始更新
+        /// </summary>
+        protected virtual void Start()
+        {
             AppUtil.Idle(() =>
             {
                 this.btnRetry.Visible = false;
-                this.CheckCompleted = false;
+                this.IsCheckCompleted = false;
                 this.Uptodate = false;
                 this.m_RefreshTimer.Start();
                 this.m_Updater.StartUpdate();
             });
+        }
+
+        /// <summary>
+        /// 检查更新完成
+        /// </summary>
+        protected virtual void CheckCompleted()
+        {
+            if (this.m_DelayTimer == null)
+            {
+                this.m_DelayTimer = new Timer();
+                this.m_DelayTimer.Interval = INTERVAL_DELAY;
+                this.m_DelayTimer.Tick += (ss, ee) => this.CloseCore();
+            }
+            this.m_DelayTimer.Start();
+        }
+
+        /// <summary>
+        /// 检查更新,可指定是否允许取消更新
+        /// </summary>
+        /// <param name="allowCancel">是否允许取消更新</param>
+        /// <returns>true 表示程序应继续运行,否则程序应退出</returns>
+        public virtual bool CheckUpdate(bool allowCancel = false)
+        {
+            //声明
+            bool completed;
+            bool uptodate;
+            //检查更新
+            this.IsCheckMode = true;
+            this.ShowDialog();
+            completed = this.IsCheckCompleted;
+            uptodate = this.Uptodate;
+            //用户取消或发生错误
+            if (!completed)
+                return allowCancel;
+            //发现新版本
+            if (!uptodate)
+                ProcessUtil.Start(AppConfig.AssemblyPath, HostConfig.ExecutablePath);
+            return uptodate;
         }
 
         /// <summary>

@@ -435,11 +435,14 @@
     <Compile Include="..\Microsoft.Windows.Forms\Animate\IAnimation.cs">
       <Link>Microsoft\Windows\Forms\Animate\IAnimation.cs</Link>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\UIGradientAnimation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\UIGradientAnimation.cs</Link>
+    </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Animate\UIImageAnimation.cs">
       <Link>Microsoft\Windows\Forms\Animate\UIImageAnimation.cs</Link>
     </Compile>
-    <Compile Include="..\Microsoft.Windows.Forms\Animate\UIProgressAnimation.cs">
-      <Link>Microsoft\Windows\Forms\Animate\UIProgressAnimation.cs</Link>
+    <Compile Include="..\Microsoft.Windows.Forms\Animate\UILinearAnimation.cs">
+      <Link>Microsoft\Windows\Forms\Animate\UILinearAnimation.cs</Link>
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.0.cs">
       <Link>Microsoft\Windows\Forms\Controls\IUIControl.0.cs</Link>
@@ -455,6 +458,9 @@
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.4.Render.cs">
       <Link>Microsoft\Windows\Forms\Controls\IUIControl.4.Render.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIControl.5.Events.cs">
+      <Link>Microsoft\Windows\Forms\Controls\IUIControl.5.Events.cs</Link>
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\IUIWindow.cs">
       <Link>Microsoft\Windows\Forms\Controls\IUIWindow.cs</Link>
@@ -532,6 +538,9 @@
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UILine\UILine.cs">
       <Link>Microsoft\Windows\Forms\Controls\UILine\UILine.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UIMarquee\UIMarquee.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UIMarquee\UIMarquee.cs</Link>
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UIPanel\UIPanel.cs">
       <Link>Microsoft\Windows\Forms\Controls\UIPanel\UIPanel.cs</Link>
@@ -687,6 +696,9 @@
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Util\PaintManager.cs">
       <Link>Microsoft\Windows\Forms\Util\PaintManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Util\RandomColor.cs">
+      <Link>Microsoft\Windows\Forms\Util\RandomColor.cs</Link>
     </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Util\RenderEngine.0.cs">
       <Link>Microsoft\Windows\Forms\Util\RenderEngine.0.cs</Link>

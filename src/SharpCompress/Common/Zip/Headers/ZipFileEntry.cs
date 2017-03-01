@@ -57,15 +57,31 @@ namespace SharpCompress.Common.Zip.Headers
 
         internal ZipCompressionMethod CompressionMethod { get; set; }
 
-        internal uint CompressedSize { get; set; }
+        internal long CompressedSize { get; set; }
 
         internal long? DataStartPosition { get; set; }
 
-        internal uint UncompressedSize { get; set; }
+        internal long UncompressedSize { get; set; }
 
         internal List<ExtraData> Extra { get; set; }
+        
+        public string Password { get; set; }
 
-        internal PkwareTraditionalEncryptionData PkwareTraditionalEncryptionData { get; set; }
+        internal PkwareTraditionalEncryptionData ComposeEncryptionData(Stream archiveStream)
+        {
+            if (archiveStream == null)
+            {
+                throw new ArgumentNullException(nameof(archiveStream));
+            }
+
+            var buffer = new byte[12];
+            archiveStream.Read(buffer, 0, 12);
+
+            PkwareTraditionalEncryptionData encryptionData = PkwareTraditionalEncryptionData.ForRead(Password, this, buffer);
+            
+            return encryptionData;
+        }
+
 #if !NO_CRYPTO
         internal WinzipAesEncryptionData WinzipAesEncryptionData { get; set; }
 #endif
@@ -96,5 +112,7 @@ namespace SharpCompress.Common.Zip.Headers
         }
 
         internal ZipFilePart Part { get; set; }
+
+        internal bool IsZip64 { get { return CompressedSize == uint.MaxValue; } }
     }
 }

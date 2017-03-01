@@ -25,7 +25,6 @@ namespace SharpCompress.Test
             ArchiveStreamRead("Zip.zipx");
         }
 
-
         [Fact]
         public void Zip_BZip2_Streamed_ArchiveStreamRead()
         {
@@ -131,6 +130,18 @@ namespace SharpCompress.Test
         }
 
         [Fact]
+        public void Zip_Zip64_ArchiveStreamRead()
+        {
+            ArchiveStreamRead("Zip.zip64.zip");
+        }
+
+        [Fact]
+        public void Zip_Zip64_ArchiveFileRead()
+        {
+            ArchiveFileRead("Zip.zip64.zip");
+        }
+
+        [Fact]
         public void Zip_Random_Write_Remove()
         {
             string scratchPath = Path.Combine(SCRATCH_FILES_PATH, "Zip.deflate.mod.zip");
@@ -150,7 +161,7 @@ namespace SharpCompress.Test
         [Fact]
         public void Zip_Random_Write_Add()
         {
-            string jpg = Path.Combine(ORIGINAL_FILES_PATH, "jpg\\test.jpg");
+            string jpg = Path.Combine(ORIGINAL_FILES_PATH, "jpg","test.jpg");
             string scratchPath = Path.Combine(SCRATCH_FILES_PATH, "Zip.deflate.mod.zip");
             string unmodified = Path.Combine(TEST_ARCHIVES_PATH, "Zip.deflate.mod.zip");
             string modified = Path.Combine(TEST_ARCHIVES_PATH, "Zip.deflate.mod2.zip");
@@ -374,6 +385,29 @@ namespace SharpCompress.Test
             Assert.Equal(count3, 3);
         }
 
+        [Fact]
+        public void Zip_Deflate_PKWear_Multipy_Entry_Access()
+        {
+            string zipFile = Path.Combine(TEST_ARCHIVES_PATH, "Zip.deflate.pkware.zip");
+
+            using (FileStream fileStream = File.Open(zipFile, FileMode.Open))
+            {
+                using (IArchive archive = ArchiveFactory.Open(fileStream, new ReaderOptions { Password = "12345678" }))
+                {
+                    var entries = archive.Entries.Where(entry => !entry.IsDirectory);
+                    foreach (IArchiveEntry entry in entries)
+                    {
+                        for (var i = 0; i < 100; i++)
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            using (Stream entryStream = entry.OpenEntryStream())
+                                entryStream.CopyTo(memoryStream);
+                        }
+                    }
+                }
+            }
+
+        }
 
         class NonSeekableMemoryStream : MemoryStream
         {

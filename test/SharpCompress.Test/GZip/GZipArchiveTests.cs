@@ -46,13 +46,55 @@ namespace SharpCompress.Test
         [Fact]
         public void GZip_Archive_NoAdd()
         {
-            string jpg = Path.Combine(ORIGINAL_FILES_PATH, "jpg\\test.jpg");
+            string jpg = Path.Combine(ORIGINAL_FILES_PATH, "jpg", "test.jpg");
             ResetScratch();
             using (Stream stream = File.Open(Path.Combine(TEST_ARCHIVES_PATH, "Tar.tar.gz"), FileMode.Open))
             using (var archive = GZipArchive.Open(stream))
             {
                 Assert.Throws<InvalidOperationException>(() => archive.AddEntry("jpg\\test.jpg", jpg));
                 archive.SaveTo(Path.Combine(SCRATCH_FILES_PATH, "Tar.tar.gz"));
+            }
+        }
+
+
+        [Fact]
+        public void GZip_Archive_Multiple_Reads()
+        {
+            ResetScratch();
+            var inputStream = new MemoryStream();
+            using (var fileStream = File.Open(Path.Combine(TEST_ARCHIVES_PATH, "Tar.tar.gz"), FileMode.Open))
+            {
+                fileStream.CopyTo(inputStream);
+                inputStream.Position = 0;
+            }
+            using (var archive = GZipArchive.Open(inputStream))
+            {
+                var archiveEntry = archive.Entries.First();
+
+                MemoryStream tarStream;
+                using (var entryStream = archiveEntry.OpenEntryStream())
+                {
+                    tarStream = new MemoryStream();
+                    entryStream.CopyTo(tarStream);
+                }
+                var size = tarStream.Length;
+                using (var entryStream = archiveEntry.OpenEntryStream())
+                {
+                    tarStream = new MemoryStream();
+                    entryStream.CopyTo(tarStream);
+                }
+                Assert.Equal(size, tarStream.Length);
+                using (var entryStream = archiveEntry.OpenEntryStream())
+                {
+                    var result = SharpCompress.Archives.Tar.TarArchive.IsTarFile(entryStream);
+                }
+                Assert.Equal(size, tarStream.Length);
+                using (var entryStream = archiveEntry.OpenEntryStream())
+                {
+                    tarStream = new MemoryStream();
+                    entryStream.CopyTo(tarStream);
+                }
+                Assert.Equal(size, tarStream.Length);
             }
         }
     }

@@ -539,6 +539,9 @@
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UILine\UILine.cs">
       <Link>Microsoft\Windows\Forms\Controls\UILine\UILine.cs</Link>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UILink\UILink.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UILink\UILink.cs</Link>
+    </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UIMarquee\UIMarquee.cs">
       <Link>Microsoft\Windows\Forms\Controls\UIMarquee\UIMarquee.cs</Link>
     </Compile>
@@ -1048,6 +1051,12 @@
     <Compile Include="..\SharpCompress\Common\Zip\Headers\SplitHeader.cs">
       <Link>SharpCompress\Common\Zip\Headers\SplitHeader.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\Zip64DirectoryEndHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\Zip64DirectoryEndHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Common\Zip\Headers\Zip64DirectoryEndLocatorHeader.cs">
+      <Link>SharpCompress\Common\Zip\Headers\Zip64DirectoryEndLocatorHeader.cs</Link>
+    </Compile>
     <Compile Include="..\SharpCompress\Common\Zip\Headers\ZipFileEntry.cs">
       <Link>SharpCompress\Common\Zip\Headers\ZipFileEntry.cs</Link>
     </Compile>
@@ -1191,6 +1200,9 @@
     </Compile>
     <Compile Include="..\SharpCompress\Compressors\LZMA\Log.cs">
       <Link>SharpCompress\Compressors\LZMA\Log.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\LZMA\LZipStream.cs">
+      <Link>SharpCompress\Compressors\LZMA\LZipStream.cs</Link>
     </Compile>
     <Compile Include="..\SharpCompress\Compressors\LZMA\LzmaBase.cs">
       <Link>SharpCompress\Compressors\LZMA\LzmaBase.cs</Link>

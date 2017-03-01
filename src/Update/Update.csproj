@@ -539,6 +539,9 @@
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UILine\UILine.cs">
       <Link>Microsoft\Windows\Forms\Controls\UILine\UILine.cs</Link>
     </Compile>
+    <Compile Include="..\Microsoft.Windows.Forms\Controls\UILink\UILink.cs">
+      <Link>Microsoft\Windows\Forms\Controls\UILink\UILink.cs</Link>
+    </Compile>
     <Compile Include="..\Microsoft.Windows.Forms\Controls\UIMarquee\UIMarquee.cs">
       <Link>Microsoft\Windows\Forms\Controls\UIMarquee\UIMarquee.cs</Link>
     </Compile>

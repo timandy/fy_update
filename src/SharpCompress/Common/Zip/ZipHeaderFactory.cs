@@ -17,8 +17,8 @@ namespace SharpCompress.Common.Zip
         internal const uint DIGITAL_SIGNATURE = 0x05054b50;
         internal const uint SPLIT_ARCHIVE_HEADER_BYTES = 0x30304b50;
 
-        private const uint ZIP64_END_OF_CENTRAL_DIRECTORY = 0x06064b50;
-        private const uint ZIP64_END_OF_CENTRAL_DIRECTORY_LOCATOR = 0x07064b50;
+        internal const uint ZIP64_END_OF_CENTRAL_DIRECTORY = 0x06064b50;
+        internal const uint ZIP64_END_OF_CENTRAL_DIRECTORY_LOCATOR = 0x07064b50;
 
         protected LocalEntryHeader lastEntryHeader;
         private readonly string password;
@@ -30,7 +30,7 @@ namespace SharpCompress.Common.Zip
             this.password = password;
         }
 
-        protected ZipHeader ReadHeader(uint headerBytes, BinaryReader reader)
+        protected ZipHeader ReadHeader(uint headerBytes, BinaryReader reader, bool zip64 = false)
         {
             switch (headerBytes)
             {
@@ -54,14 +54,12 @@ namespace SharpCompress.Common.Zip
                     if (FlagUtility.HasFlag(lastEntryHeader.Flags, HeaderFlags.UsePostDataDescriptor))
                     {
                         lastEntryHeader.Crc = reader.ReadUInt32();
-                        lastEntryHeader.CompressedSize = reader.ReadUInt32();
-                        lastEntryHeader.UncompressedSize = reader.ReadUInt32();
+                        lastEntryHeader.CompressedSize = zip64 ? (long)reader.ReadUInt64() : reader.ReadUInt32();
+                        lastEntryHeader.UncompressedSize = zip64 ? (long)reader.ReadUInt64() : reader.ReadUInt32();
                     }
                     else
                     {
-                        reader.ReadUInt32();
-                        reader.ReadUInt32();
-                        reader.ReadUInt32();
+                        reader.ReadBytes(zip64 ? 20 : 12);
                     }
                     return null;
                 }
@@ -78,9 +76,14 @@ namespace SharpCompress.Common.Zip
                     return new SplitHeader();
                 }
                 case ZIP64_END_OF_CENTRAL_DIRECTORY:
+                {
+                    var entry = new Zip64DirectoryEndHeader();
+                    entry.Read(reader);
+                    return entry;
+                }
                 case ZIP64_END_OF_CENTRAL_DIRECTORY_LOCATOR:
                 {
-                    var entry = new IgnoreHeader(ZipHeaderType.Ignore);
+                    var entry = new Zip64DirectoryEndLocatorHeader();
                     entry.Read(reader);
                     return entry;
                 }
@@ -111,46 +114,43 @@ namespace SharpCompress.Common.Zip
         {
             if (FlagUtility.HasFlag(entryHeader.Flags, HeaderFlags.Encrypted))
             {
-                if (!entryHeader.IsDirectory &&
-                    entryHeader.CompressedSize == 0 &&
+                if (!entryHeader.IsDirectory && entryHeader.CompressedSize == 0 &&
                     FlagUtility.HasFlag(entryHeader.Flags, HeaderFlags.UsePostDataDescriptor))
                 {
-                    throw new NotSupportedException(
-                                                    "SharpCompress cannot currently read non-seekable Zip Streams with encrypted data that has been written in a non-seekable manner.");
+                    throw new NotSupportedException("SharpCompress cannot currently read non-seekable Zip Streams with encrypted data that has been written in a non-seekable manner.");
                 }
+
                 if (password == null)
                 {
                     throw new CryptographicException("No password supplied for encrypted zip.");
                 }
-                if (entryHeader.CompressionMethod != ZipCompressionMethod.WinzipAes)
-                {
-                    byte[] buffer = new byte[12];
-                    stream.Read(buffer, 0, 12);
-                    entryHeader.PkwareTraditionalEncryptionData = PkwareTraditionalEncryptionData.ForRead(password,
-                                                                                                          entryHeader,
-                                                                                                          buffer);
-                    entryHeader.CompressedSize -= 12;
-                }
-                else
+
+                entryHeader.Password = password;
+
+                if (entryHeader.CompressionMethod == ZipCompressionMethod.WinzipAes)
                 {
 #if NO_CRYPTO
                     throw new NotSupportedException("Cannot decrypt Winzip AES with Silverlight or WP7.");
 #else
 
-                    var data = entryHeader.Extra.SingleOrDefault(x => x.Type == ExtraDataType.WinZipAes);
-                    WinzipAesKeySize keySize = (WinzipAesKeySize) data.DataBytes[4];
+                    ExtraData data = entryHeader.Extra.SingleOrDefault(x => x.Type == ExtraDataType.WinZipAes);
+                    if (data != null)
+                    {
+                        var keySize = (WinzipAesKeySize)data.DataBytes[4];
 
-                    byte[] salt = new byte[WinzipAesEncryptionData.KeyLengthInBytes(keySize)/2];
-                    byte[] passwordVerifyValue = new byte[2];
-                    stream.Read(salt, 0, salt.Length);
-                    stream.Read(passwordVerifyValue, 0, 2);
-                    entryHeader.WinzipAesEncryptionData = new WinzipAesEncryptionData(keySize, salt, passwordVerifyValue,
-                                                                                      password);
-                    entryHeader.CompressedSize -= (uint) (salt.Length + 2);
+                        var salt = new byte[WinzipAesEncryptionData.KeyLengthInBytes(keySize) / 2];
+                        var passwordVerifyValue = new byte[2];
+                        stream.Read(salt, 0, salt.Length);
+                        stream.Read(passwordVerifyValue, 0, 2);
+                        entryHeader.WinzipAesEncryptionData =
+                            new WinzipAesEncryptionData(keySize, salt, passwordVerifyValue, password);
 
+                        entryHeader.CompressedSize -= (uint)(salt.Length + 2);
+                    }
 #endif
                 }
             }
+
             if (entryHeader.IsDirectory)
             {
                 return;
@@ -168,13 +168,15 @@ namespace SharpCompress.Common.Zip
                 {
                     entryHeader.DataStartPosition = stream.Position;
                     stream.Position += entryHeader.CompressedSize;
-                }
                     break;
+                }
+
                 case StreamingMode.Streaming:
                 {
                     entryHeader.PackedStream = stream;
-                }
                     break;
+                }
+
                 default:
                 {
                     throw new InvalidFormatException("Invalid StreamingMode");

@@ -1,8 +1,12 @@
 请在 master 分支上查看此文件。
 
+v2.4.5
+修复键集合查找错误
+sharpcompress 库升级到 0.15.2
+
 v2.4.4
 directui 库升级到 1.1.4
-sharpcomress 库升级到 0.15.1
+sharpcompress 库升级到 0.15.1
 
 v2.4.3
 directui 库升级到 1.1.3

@@ -64,13 +64,28 @@ namespace Update.Core.Entities
 
         /// <summary>
         /// 获取指定主键元素
-        /// /// </summary>
+        /// </summary>
         /// <param name="key">主键</param>
         /// <param name="item">获取到的元素</param>
         /// <returns>包含返回true,否则返回false</returns>
         public bool TryGetValue(Version key, out DiffPackage item)
         {
-            return base.Dictionary.TryGetValue(key, out item);
+            var dictionary = this.Dictionary;
+            if (dictionary == null)
+            {
+                var comparer = this.Comparer;
+                foreach (var value in this.Items)
+                {
+                    if (comparer.Equals(this.GetKeyForItem(value), key))
+                    {
+                        item = value;
+                        return true;
+                    }
+                }
+                item = null;
+                return false;
+            }
+            return dictionary.TryGetValue(key, out item);
         }
     }
 }

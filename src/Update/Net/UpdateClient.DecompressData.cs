@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Text;
 using System.Threading;
 using SharpCompress.Archives;
 using SharpCompress.Readers;
@@ -123,13 +124,15 @@ namespace Update.Net
             {
                 using (MemoryStream stream = new MemoryStream(e.Data))
                 {
-                    using (IArchive archive = ArchiveFactory.Open(stream))
+                    ReaderOptions readerOptions = new ReaderOptions();
+                    readerOptions.ArchiveEncoding.Default = Encoding.Default;
+                    using (IArchive archive = ArchiveFactory.Open(stream, readerOptions))
                     {
                         this.m_Progress.ToComplete = archive.TotalUncompressSize;
                         string deleteEntry = e.DeleteEntry;
                         string lastEntry = e.LastEntry;
                         string destinationDirectory = e.DestinationDirectory;
-                        ExtractionOptions options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveFileTime = true };
+                        ExtractionOptions extractionOptions = new ExtractionOptions { ExtractFullPath = true, Overwrite = true, PreserveFileTime = true };
                         IArchiveEntry last = null;
                         foreach (IArchiveEntry entry in archive.Entries)
                         {
@@ -146,9 +149,9 @@ namespace Update.Net
                                 continue;
                             }
                             if (entry.Key.Equals(deleteEntry, StringComparison.OrdinalIgnoreCase))
-                                DeleteFromDirectory(entry, destinationDirectory, options);
+                                DeleteFromDirectory(entry, destinationDirectory, extractionOptions);
                             else
-                                entry.WriteToDirectory(destinationDirectory, options);
+                                entry.WriteToDirectory(destinationDirectory, extractionOptions);
                             this.m_Progress.Completed += entry.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }
@@ -160,9 +163,9 @@ namespace Update.Net
                                 return;
                             }
                             if (last.Key.Equals(deleteEntry, StringComparison.OrdinalIgnoreCase))
-                                DeleteFromDirectory(last, destinationDirectory, options);
+                                DeleteFromDirectory(last, destinationDirectory, extractionOptions);
                             else
-                                last.WriteToDirectory(destinationDirectory, options);
+                                last.WriteToDirectory(destinationDirectory, extractionOptions);
                             this.m_Progress.Completed += last.Size;
                             this.PostDecompressProgressChanged(this.m_Progress, this.m_AsyncOp);
                         }

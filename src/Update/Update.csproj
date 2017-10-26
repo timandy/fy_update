@@ -949,6 +949,9 @@
     <Compile Include="..\SharpCompress\Common\Rar\Headers\SignHeader.cs">
       <Link>SharpCompress\Common\Rar\Headers\SignHeader.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Common\Rar\RarCrcBinaryReader.cs">
+      <Link>SharpCompress\Common\Rar\RarCrcBinaryReader.cs</Link>
+    </Compile>
     <Compile Include="..\SharpCompress\Common\Rar\RarCryptoBinaryReader.cs">
       <Link>SharpCompress\Common\Rar\RarCryptoBinaryReader.cs</Link>
     </Compile>
@@ -1366,6 +1369,9 @@
     <Compile Include="..\SharpCompress\Compressors\Rar\RarCRC.cs">
       <Link>SharpCompress\Compressors\Rar\RarCRC.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Rar\RarCrcStream.cs">
+      <Link>SharpCompress\Compressors\Rar\RarCrcStream.cs</Link>
+    </Compile>
     <Compile Include="..\SharpCompress\Compressors\Rar\RarStream.cs">
       <Link>SharpCompress\Compressors\Rar\RarStream.cs</Link>
     </Compile>
@@ -1417,8 +1423,59 @@
     <Compile Include="..\SharpCompress\Compressors\Rar\VM\VMStandardFilterSignature.cs">
       <Link>SharpCompress\Compressors\Rar\VM\VMStandardFilterSignature.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\BinaryUtils.cs">
+      <Link>SharpCompress\Compressors\Xz\BinaryUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\CheckType.cs">
+      <Link>SharpCompress\Compressors\Xz\CheckType.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\Crc32.cs">
+      <Link>SharpCompress\Compressors\Xz\Crc32.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\Crc64.cs">
+      <Link>SharpCompress\Compressors\Xz\Crc64.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\Filters\BlockFilter.cs">
+      <Link>SharpCompress\Compressors\Xz\Filters\BlockFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\Filters\Lzma2Filter.cs">
+      <Link>SharpCompress\Compressors\Xz\Filters\Lzma2Filter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\MultiByteIntegers.cs">
+      <Link>SharpCompress\Compressors\Xz\MultiByteIntegers.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\ReadOnlyStream.cs">
+      <Link>SharpCompress\Compressors\Xz\ReadOnlyStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZBlock.cs">
+      <Link>SharpCompress\Compressors\Xz\XZBlock.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZFooter.cs">
+      <Link>SharpCompress\Compressors\Xz\XZFooter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZHeader.cs">
+      <Link>SharpCompress\Compressors\Xz\XZHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZIndex.cs">
+      <Link>SharpCompress\Compressors\Xz\XZIndex.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZIndexMarkerReachedException.cs">
+      <Link>SharpCompress\Compressors\Xz\XZIndexMarkerReachedException.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZIndexRecord.cs">
+      <Link>SharpCompress\Compressors\Xz\XZIndexRecord.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZReadOnlyStream.cs">
+      <Link>SharpCompress\Compressors\Xz\XZReadOnlyStream.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Compressors\Xz\XZStream.cs">
+      <Link>SharpCompress\Compressors\Xz\XZStream.cs</Link>
+    </Compile>
     <Compile Include="..\SharpCompress\Converters\DataConverter.cs">
       <Link>SharpCompress\Converters\DataConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Crypto\Crc32Stream.cs">
+      <Link>SharpCompress\Crypto\Crc32Stream.cs</Link>
     </Compile>
     <Compile Include="..\SharpCompress\Crypto\CryptoException.cs">
       <Link>SharpCompress\Crypto\CryptoException.cs</Link>
@@ -1513,6 +1570,9 @@
     <Compile Include="..\SharpCompress\Readers\ReaderOptions.cs">
       <Link>SharpCompress\Readers\ReaderOptions.cs</Link>
     </Compile>
+    <Compile Include="..\SharpCompress\Readers\ReaderProgress.cs">
+      <Link>SharpCompress\Readers\ReaderProgress.cs</Link>
+    </Compile>
     <Compile Include="..\SharpCompress\Readers\Tar\TarReader.cs">
       <Link>SharpCompress\Readers\Tar\TarReader.cs</Link>
     </Compile>
@@ -1530,6 +1590,9 @@
     </Compile>
     <Compile Include="..\SharpCompress\Writers\GZip\GZipWriter.cs">
       <Link>SharpCompress\Writers\GZip\GZipWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpCompress\Writers\GZip\GZipWriterOptions.cs">
+      <Link>SharpCompress\Writers\GZip\GZipWriterOptions.cs</Link>
     </Compile>
     <Compile Include="..\SharpCompress\Writers\IWriter.cs">
       <Link>SharpCompress\Writers\IWriter.cs</Link>

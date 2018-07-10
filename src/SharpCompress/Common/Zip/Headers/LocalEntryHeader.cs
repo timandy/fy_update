@@ -25,7 +25,24 @@ namespace SharpCompress.Common.Zip.Headers
             ushort extraLength = reader.ReadUInt16();
             byte[] name = reader.ReadBytes(nameLength);
             byte[] extra = reader.ReadBytes(extraLength);
-            Name = ArchiveEncoding.Decode(name);
+            
+            // According to .ZIP File Format Specification
+            //
+            // For example: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
+            //
+            // Bit 11: Language encoding flag (EFS).  If this bit is set,
+            //         the filename and comment fields for this file
+            //         MUST be encoded using UTF-8. (see APPENDIX D)
+            
+            if (Flags.HasFlag(HeaderFlags.Efs))
+            {
+                Name = ArchiveEncoding.DecodeUTF8(name);
+            }
+            else
+            {
+                Name = ArchiveEncoding.Decode(name);
+            }
+            
             LoadExtra(extra);
 
             var unicodePathExtra = Extra.FirstOrDefault(u => u.Type == ExtraDataType.UnicodePathExtraField);

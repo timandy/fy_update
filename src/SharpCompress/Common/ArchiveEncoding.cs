@@ -28,9 +28,21 @@ namespace SharpCompress.Common
 
         public ArchiveEncoding()
         {
-            Default = Encoding.UTF8;
-            Password = Encoding.UTF8;
+#if NETSTANDARD1_0
+            Default = Encoding.GetEncoding("cp437");
+            Password = Encoding.GetEncoding("cp437");
+#else    
+            Default = Encoding.GetEncoding(437);
+            Password = Encoding.GetEncoding(437);
+#endif            
         }
+
+#if NETSTANDARD1_3 || NETSTANDARD2_0
+        static ArchiveEncoding()
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        }
+#endif
 
         public string Decode(byte[] bytes)
         {
@@ -40,6 +52,11 @@ namespace SharpCompress.Common
         public string Decode(byte[] bytes, int start, int length)
         {
             return GetDecoder().Invoke(bytes, start, length);
+        }
+
+        public string DecodeUTF8(byte[] bytes)
+        {
+            return Encoding.UTF8.GetString(bytes, 0, bytes.Length);
         }
 
         public byte[] Encode(string str)
@@ -54,7 +71,7 @@ namespace SharpCompress.Common
 
         public Func<byte[], int, int, string> GetDecoder()
         {
-            return CustomDecoder ?? ((bytes, index, count) => (Default ?? Encoding.UTF8).GetString(bytes, index, count));
+            return CustomDecoder ?? ((bytes, index, count) => GetEncoding().GetString(bytes, index, count));
         }
     }
 }

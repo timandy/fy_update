@@ -1,6 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace SharpCompress.Common.Zip.Headers
 {
@@ -31,10 +31,28 @@ namespace SharpCompress.Common.Zip.Headers
             RelativeOffsetOfEntryHeader = reader.ReadUInt32();
 
             byte[] name = reader.ReadBytes(nameLength);
-            Name = ArchiveEncoding.Decode(name);
             byte[] extra = reader.ReadBytes(extraLength);
             byte[] comment = reader.ReadBytes(commentLength);
-            Comment = ArchiveEncoding.Decode(comment);
+            
+            // According to .ZIP File Format Specification
+            //
+            // For example: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
+            //
+            // Bit 11: Language encoding flag (EFS).  If this bit is set,
+            //         the filename and comment fields for this file
+            //         MUST be encoded using UTF-8. (see APPENDIX D)
+            
+            if (Flags.HasFlag(HeaderFlags.Efs))
+            {
+                Name = ArchiveEncoding.DecodeUTF8(name);
+                Comment = ArchiveEncoding.DecodeUTF8(comment);
+            }
+            else
+            {
+                Name = ArchiveEncoding.Decode(name);
+                Comment = ArchiveEncoding.Decode(comment);
+            }
+
             LoadExtra(extra);
 
             var unicodePathExtra = Extra.FirstOrDefault(u => u.Type == ExtraDataType.UnicodePathExtraField);
@@ -50,10 +68,12 @@ namespace SharpCompress.Common.Zip.Headers
                 {
                     CompressedSize = zip64ExtraData.CompressedSize;
                 }
+
                 if (UncompressedSize == uint.MaxValue)
                 {
                     UncompressedSize = zip64ExtraData.UncompressedSize;
                 }
+
                 if (RelativeOffsetOfEntryHeader == uint.MaxValue)
                 {
                     RelativeOffsetOfEntryHeader = zip64ExtraData.RelativeOffsetOfEntryHeader;

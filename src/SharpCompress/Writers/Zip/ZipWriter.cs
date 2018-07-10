@@ -37,6 +37,11 @@ namespace SharpCompress.Writers.Zip
 
             compressionType = zipWriterOptions.CompressionType;
             compressionLevel = zipWriterOptions.DeflateCompressionLevel;
+            
+            if (WriterOptions.LeaveStreamOpen)
+            {
+                destination = new NonDisposingStream(destination);
+            }
             InitalizeStream(destination);
         }
 
@@ -169,7 +174,7 @@ namespace SharpCompress.Writers.Zip
             {
                 OutputStream.Write(new byte[] { 63, 0 }, 0, 2); //version says we used PPMd or LZMA
             }
-            HeaderFlags flags = Equals(WriterOptions.ArchiveEncoding.GetEncoding(), Encoding.UTF8) ? HeaderFlags.UTF8 : 0;
+            HeaderFlags flags = Equals(WriterOptions.ArchiveEncoding.GetEncoding(), Encoding.UTF8) ? HeaderFlags.Efs : 0;
             if (!OutputStream.CanSeek)
             {
                 flags |= HeaderFlags.UsePostDataDescriptor;
@@ -312,12 +317,11 @@ namespace SharpCompress.Writers.Zip
                         }
                     case ZipCompressionMethod.Deflate:
                         {
-                            return new DeflateStream(counting, CompressionMode.Compress, compressionLevel,
-                                                     true);
+                            return new DeflateStream(counting, CompressionMode.Compress, compressionLevel);
                         }
                     case ZipCompressionMethod.BZip2:
                         {
-                            return new BZip2Stream(counting, CompressionMode.Compress, true);
+                            return new BZip2Stream(counting, CompressionMode.Compress, false);
                         }
                     case ZipCompressionMethod.LZMA:
                         {

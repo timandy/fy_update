@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using SharpCompress.Archives;
+using SharpCompress.Common;
 using SharpCompress.Readers;
 using Update.Net.Events;
 
